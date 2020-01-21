@@ -1,0 +1,67 @@
+/* -------------------------------------------------------------------------- */
+/*                                    TOOLS                                   */
+/* -------------------------------------------------------------------------- */
+
+#debug {
+  position: absolute;
+  padding: 4px;
+  font-size: 12px;
+  top: 15px;
+  right: 15px;
+  background-color: #33333377;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.fxs {
+  font-size: x-small;
+}
+
+.flex {
+  display: flex;
+}
+
+.percent-bg {
+  width: 100%;
+  background: linear-gradient(to right, rgb(11, 204, 37) 0%, rgba(255, 215, 10, 1) 50%, rgba(255, 0, 0, 1) 100%);
+  border-radius: 6px;
+  height: 12px;
+  box-shadow: 1px 1px 2px #33333377;
+
+  .percent {
+    margin: 0 -1px;
+    float: right;
+    border-radius: 0 6px 6px 0;
+    background-color: #ddd;
+    height: 12px;
+    background-size: 35% 5%;
+  }
+}
+
+.shadow {
+  box-shadow: 1px 1px 2px #33333377;
+}
+
+.clickable {
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 6px hsl(200, 55%, 60%, 50%);
+  }
+}
+
+.hover-switch {
+  .auto-show {
+    display: none;
+  }
+
+  &:hover {
+    .auto-show {
+      display: initial;
+    }
+    .auto-hide {
+      display: none;
+    }
+  }
+}

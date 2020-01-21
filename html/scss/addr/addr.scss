@@ -1,0 +1,288 @@
+/* -------------------------------------------------------------------------- */
+/*                                    FONTS                                   */
+/* -------------------------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css?family=Architects+Daughter|Roboto+Mono|Ubuntu+Mono&display=swap");
+
+/* -------------------------------------------------------------------------- */
+/*                                   SPECTRE                                  */
+/* -------------------------------------------------------------------------- */
+
+// Variables and mixins
+@import "spectre/variables";
+@import "spectre/mixins";
+
+// Reset and dependencies
+@import "spectre/normalize";
+@import "spectre/base";
+
+// Elements
+@import "spectre/typography";
+@import "spectre/tables";
+@import "spectre/buttons";
+@import "spectre/forms";
+@import "spectre/labels";
+@import "spectre/media";
+//@import "spectre/codes";
+//@import "spectre/asian";
+
+// Layout
+@import "spectre/layout";
+//@import "spectre/hero";
+//@import "spectre/navbar";
+
+// Components
+//@import "spectre/modals";
+@import "spectre/toasts";
+//@import "spectre/accordions";
+//@import "spectre/avatars";
+//@import "spectre/badges";
+//@import "spectre/breadcrumbs";
+//@import "spectre/bars";
+//@import "spectre/cards";
+//@import "spectre/chips";
+//@import "spectre/dropdowns";
+//@import "spectre/empty";
+//@import "spectre/menus";
+//@import "spectre/navs";
+//@import "spectre/pagination";
+//@import "spectre/panels";
+//@import "spectre/popovers";
+//@import "spectre/steps";
+//@import "spectre/tabs";
+//@import "spectre/tiles";
+//@import "spectre/tooltips";
+
+// Utility classes
+@import "spectre/animations";
+@import "spectre/utilities";
+
+/* -------------------------------------------------------------------------- */
+/*                                    SPILL                                   */
+/* -------------------------------------------------------------------------- */
+
+//@import "core";
+@import "animation";
+//@import "modals";
+//@import "menubar";
+//@import "boxes";
+//@import "loading";
+//@import "form";
+//@import "dashboardtable";
+//@import "infocards";
+//@import "login";
+//@import "openlayers";
+//@import "smartbox";
+//@import "call";
+//@import "orderlayer";
+//@import "tools";
+//@import "realledger";
+@import "progressbar";
+
+#app{
+  font-family: 'Architects Daughter', cursive;
+  background: radial-gradient(
+   ellipse at center,
+   hsl(30, 100%, 100%) 0%, 
+   hsl(30, 70%, 70%) 150%);
+
+  width: 100vw;
+  height: 100vh;
+  border-bottom: hsl(30, 70%, 50%) 2px solid;
+
+  .add-task {
+    z-index: 20;
+    position: absolute;
+    top: -260px;
+    left:30vw;
+    width:40vw;
+    transition: all 0.6s ease-in-out;
+
+    &:hover{
+      top: 0px; 
+    }
+
+    .task-form {
+      user-select: none;
+      height: 255px;
+      padding: 10px;
+
+      .form-label, .text-input {
+        float:left;
+        width: 100%;
+      }
+
+      .text-input {
+        padding: 2px 4px;
+        font-size: 1.1rem;
+      }
+
+      .text-input, button {
+        border-radius: 6px;
+        border: none;
+        box-shadow: 1px 1px 3px inset hsl(30, 0%, 70%);
+        margin: 4px auto;
+      }
+
+      .time-selector {
+        margin-bottom: 20px;
+        span {
+          display: inline-block;
+          background-color: hsl(30, 0%, 90%);
+                  cursor: pointer;
+                  border-bottom: 2px solid hsl(30, 0%, 40%);
+          width:26px;
+          height: 20px;
+          border-radius: 6px;
+          padding: 0 4px;
+          font-size: 0.7rem;
+          text-align: center;
+
+          &:hover {
+          border-bottom: none;
+          background-color: hsl(55, 100%, 39%);
+          color:white;
+          font-weight: bolder;
+        }
+        }
+        input {
+          display: none;
+        }
+
+        input:checked + span {
+          background-color: hsl(85, 100%, 39%);
+          color:white;
+          font-weight: bolder;
+        } 
+
+
+      }
+      
+      button {
+        box-shadow: none;
+        border-bottom: 2px solid hsl(30, 0%, 40%);
+        background-color: hsl(30, 0%, 90%);
+        cursor: pointer;
+
+        &:hover {
+          border-bottom: none;
+          background-color: hsl(85, 100%, 39%);
+          color:white;
+          font-weight: bolder;
+        }
+      }
+
+      .switchers {
+        float: right;
+        margin-bottom: 12px;
+      }
+
+      .switch {
+        width: unset;
+        margin: 8px;
+        span {
+          cursor: pointer;
+          text-decoration: line-through;
+        }
+      }
+
+      .check {
+        //display: none;
+      }
+
+      .check:checked + span {
+        font-weight: 600;;
+        text-decoration: unset;
+      }
+    }
+
+    .handle{
+      margin: 0 auto;
+      padding-top: 10px;
+      font-size: 1rem;
+      width: 150px;
+      height: 40px;
+      text-align: center;
+      box-shadow: #33333344 3px 4px 3px;
+    }
+
+    .task-form, .handle {
+      background-color: hsl(30, 100%, 95%);
+      border-radius: 0 0 10px 10px;
+      box-shadow: #33333344 3px 4px 3px;
+    }
+  }
+
+
+  .active-task{
+    position: absolute;
+    top: 30%;
+    width: 50%;
+    left: 25%;
+  }
+    .task-name {font-size: 2rem; text-align: center;}
+  .start, .end {font-size: 1.2rem; position: absolute;}
+  .start {left: -3.5vw; margin-top: 7.5rem}
+  .end {right: -3.5vw; margin-top: 7.5rem}
+}
+
+.corner {
+  position: absolute;
+  text-align: left;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 1px;
+  background-color: hsl(30, 100%, 95%);
+  box-shadow: #33333344 3px 3px 6px;
+  z-index: 10;
+
+  .add-item {
+    display: none;
+    width: 340px;
+    height: 100%;
+    overflow-y: auto;
+
+    color: hsl(30, 30%, 20%);
+    float:left;
+    padding: 2px 10px;
+}
+  &:hover {
+    box-shadow: hsl(189, 42%, 15%, 50%) 1px 1px 6px;
+    width: 380px;
+    height: 50vh;
+    animation: grow 0.6s ease-in;
+    .add-item {display: block;}}
+  
+    .i {
+    float:left;
+  }
+
+  .icon {
+      display: block;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      float: left;
+      text-align: center;
+      background-color: hsl(30, 100%, 100%);
+      
+      i {
+        padding: 9px 8px;
+        color: hsl(85, 100%, 39%);
+        font-size: 20px;
+      }
+    }
+
+  &.tl{top: 0; left:0}
+  &.tr{top: 0; right:0}
+  &.bl{bottom: 0; left:0}
+  &.br{bottom: 0; right:0}
+
+  &.tr, &.br {
+    .icon {
+      float: right;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+// Modals
+.modal {
+  align-items: center;
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: $layout-spacing;
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  &:target,
+  &.active {
+    display: flex;
+    opacity: 1;
+    z-index: $zindex-4;
+
+    .modal-overlay {
+      background: rgba($bg-color, .6);
+      bottom: 0;
+      cursor: default;
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      animation: fadein 0.3s ease 1;
+    }
+
+    .modal-container {
+      animation: fadein 0.5s ease 1;
+      z-index: $zindex-0;
+    }
+  }
+
+  &.modal-sm {
+    .modal-container {
+      max-width: $control-width-sm;
+      padding: 0 $unit-2;
+    }
+  }
+
+  &.modal-lg {
+    .modal-container {
+      box-shadow: none;
+      max-width: $control-width-lg;
+      border-radius: 8px;
+      box-shadow: 1px 1px 3px #33333355;
+    }
+  }
+}
+
+.modal-container {
+  @include shadow-variant(.2rem);
+  background: $bg-color-light;
+  border-radius: $border-radius;
+  display: flex;
+  flex-direction: column;
+  max-height: 75vh;
+  max-width: $control-width-md;
+  padding: 0 $unit-4;
+  width: 100%;
+
+  &.modal-fullheight {
+    max-height: 70%;
+  }
+
+  .modal-header {
+    color: $dark-color;
+    padding: $unit-2;
+  }
+
+  .modal-body {
+    overflow-y: auto;
+    padding: $unit-4;
+    position: relative;
+    min-height: 400px;
+  }
+
+  .modal-footer {
+    padding: $unit-2;
+    text-align: right;
+  }
+}

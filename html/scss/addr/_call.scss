@@ -1,0 +1,64 @@
+#call-holder {
+  position: sticky;
+  bottom: 50px;
+  z-index: 90;
+  text-align: center;
+  
+  .call {
+    width: 380px;
+    text-align: left;
+    animation: call 1.2s ease-in;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 30px;
+    box-shadow: #33333377 3px 3px 6px;
+    margin: 12px auto;
+    padding: 1px;
+    background-color: $m-color-lighter;
+
+    .phone-icon {
+      display: block;
+      margin: 4px 12px 4px 4px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      float: left;
+      text-align: center;
+      
+      i {
+        padding: 10px;
+        font-size: 30px;
+        animation: callicon 0.8s infinite;
+      }
+    }
+
+    .info {
+      animation: fadein8 1.6s;
+      color: white;
+    }
+
+    .action {
+      color: $ms-text-color;
+      margin: 5px;
+      float: right;
+      margin-right: 20px;
+      i {margin: 0 6px;}
+      span {display: block;
+      cursor: pointer;
+    &:hover {color: white;}}
+      .order {color:hsl(105, 70%, 64%);}
+      .close {color:hsl(0, 90%, 74%);}
+    }
+    .name {
+      font-weight: 700;
+      font-size: 18px;
+      display: block;
+      max-height: 30px;
+      overflow: hidden;
+    }
+    .callid {
+      display: block;
+      font-size: 12px;
+    }
+  }
+}

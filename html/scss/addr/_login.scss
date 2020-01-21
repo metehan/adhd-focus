@@ -1,0 +1,135 @@
+.login-container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(lighten($m-color, 11%), $m-color);
+}
+
+.login-box {
+  position: relative;
+  padding: 0 20px 10px !important;
+  box-shadow: 4px 4px 4px hsl(120, 3%, 4%, 0.2);
+
+  .head-logo {
+    background-color: $m-color;
+    position: relative;
+    top: -20px;
+    height: 44px;
+    margin: 0 14px;
+    border-radius: 4px;
+    padding: 6px 20px;
+    text-align: center;
+    box-shadow: 0 0 10px hsl(210, 62%, 55%, 0.3);
+
+    img {
+      height: 30px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+  } //head logo
+
+  .form-input-hint {
+    position: absolute;
+    text-align: right;
+    right: 20px;
+    margin-top: -18px;
+    font-size: $unit-3;
+    animation: fadein 0.6s;
+  }
+
+  input {
+    width: 260px;
+    margin-bottom: 16px;
+  }
+  .btn {
+    margin-top: 30px;
+    height: 2rem;
+  }
+
+  .bottom {
+    text-align: center;
+    font-size: $unit-4;
+  }
+
+  .login-error {
+    position: absolute;
+    top: 100px;
+    height: 100px;
+    padding-top: 40px;
+    left: 30px;
+    width: 240px;
+    background-color: hsl(0, 100%, 55%, 0.8);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    animation: grow 0.25s;
+
+    i {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  }
+}
+
+.load-box {
+  position: relative;
+  padding: 0 20px 10px !important;
+  box-shadow: 4px 4px 4px hsl(120, 3%, 4%, 0.2);
+  color: lighten($m-color, 10%);
+  text-align: center;
+
+  h1 {
+    font-size: 26px;
+    margin: 20px;
+    color: lighten($m-color, 40%);
+  }
+
+  p {
+    margin: 10px 4px 4px;
+    width: 250px;
+    font-size: 12px;
+    display: inline-block;
+  }
+
+  //[:div.load-context
+  //[:h3 "Aboneler"]
+  //[:span.details (reveal :customer :loaded)]
+  //[:div.bar [:div.percent]]]
+
+  .load-context {
+    width: 100%;
+
+    h3 {
+      font-size: 16px;
+      margin: 4px 0 -1px 0;
+    }
+
+    .details {
+      display: block;
+      float: left;
+      z-index: 5;
+      color: lighten($m-color, 40%);
+      margin: -1px 0 0 3px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .bar {
+      border-radius: 6px;
+      background-color: lighten($m-color, 40%);
+    }
+    .percent {
+      border-radius: 6px;
+      transition: width 0.2s ease-out;
+      height: 18px;
+      background-color: lighten($m-color, 8%);
+    }
+  }
+}

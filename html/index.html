@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="app.css">
+  <title>ADD FOCUS</title>
+  <script type="text/javascript" src="remotestorage.js"></script>
+  <script type="text/javascript" src="widget.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    <div class="add-task">
+      <div class="task-form">
+        <label class="form-label">Task</label>
+        <input class="text-input" type="text">
+        <label class="form-label">Time</label>
+        <div class="time-selector">
+          <label><input type="radio" id="1" name="time"> 
+            <span> 1</span></label>
+          <label><input type="radio" id="1" name="time"> 
+            <span> 2</span></label>
+          <label><input type="radio" id="1" name="time"> 
+            <span> 3</span></label>
+          <label><input type="radio" id="1" name="time"> 
+            <span> 5</span></label>
+          <label><input type="radio" id="1" name="time"> 
+            <span> 8</span></label>
+          <label><input type="radio" id="1" name="time"> 
+            <span>10</span></label>
+          <label><input type="radio" id="1" name="time"> 
+            <span>15</span></label>
+          <label><input type="radio" id="1" name="time"> 
+            <span>20</span></label>
+          <label><input type="radio" id="1" name="time"> 
+            <span>25</span></label>
+          <label><input type="radio" id="1" name="time"> 
+            <span>30</span></label>
+          <label><input type="radio" id="1" name="time"> 
+            <span>40</span></label>
+          <label><input type="radio" id="1" name="time"> 
+            <span>50</span></label>
+          <label><input type="radio" id="1" name="time"> 
+            <span>60</span></label>
+        </div>
+  
+
+        <div class="clearfix"></div>
+        <div class="columns col-gapless">
+          <div class="column col-6">
+            <button class="start-now">Start now</button>
+          </div>
+          <div class="column col-6 text-right">
+
+
+            <div class="switchers">
+              <label class="switch">
+                <input class="check" type="checkbox" name="i">
+                <span>
+                  Important
+                </span>
+              </label>
+
+              <label class="switch">
+                <input class="check" type="checkbox" name="u">
+                <span>
+                  Urgent
+                </span>
+              </label>
+            </div>
+            <div class="clearfix"></div>
+            <button class="">Do later</button>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="handle">
+        Add New
+      </div>
+    </div>
+
+
+    <div class="corner tl">
+      <div class="icon"><i class='fa fa-list'></i></div>
+      <div class="add-item"> Hello cats</div>
+    </div>
+    <div class="corner tr">
+      <div class="icon"><i class='fa fa-list'></i></div>
+      <div class="add-item">
+        <ul>
+          <li>Buy a sniper</li>
+          <li>Rent a hellicopter</li>
+          <li>Hire a hunter</li>
+          <li>Plan the trip</li>
+          <li>Find the cats</li>
+          <li>Negotiate with them</li>
+          <li>Kiss them with love</li>
+          <li>Dig a hole</li>
+        </ul>
+      </div>
+    </div>
+    <div class="corner bl">
+      <div class="icon"><i class='fa fa-list'></i></div>
+      <div class="add-item"> Hello cats</div>
+    </div>
+    <div class="corner br">
+      <div class="icon"><i class='fa fa-list'></i></div>
+      <div class="add-item"> Hello cats</div>
+    </div>
+
+
+    <div class="active-task">
+      <div class="task-name">- Kiss all Australian cats</div>
+      <div class="start">17:23</div>
+      <div class="end">18:13</div>
+      <article>
+        <div class="chart">
+          <div class="bar bar-0 lime">
+            <div class="face top">
+              <div class="growing-bar"></div>
+            </div>
+            <div class="face side-0">
+              <div class="growing-bar"></div>
+            </div>
+            <div class="face floor">
+              <div class="growing-bar"></div>
+            </div>
+            <div class="face side-a"></div>
+            <div class="face side-b"></div>
+            <div class="face side-1">
+              <div class="growing-bar"></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div id="call-holder">
+    <div class="call">
+      <span class="phone-icon bc08">
+        <i class="fa fa-phone"></i>
+      </span>
+      <span class="info action">
+        <span class="order">
+          <p>Halo</p>
+        </span>
+      </span>
+    </div>
+  </div>
+
+  <h1>Ads be here</h1>
+
+  <script type="text/javascript">
+    const probar = document.getElementById('probar')
+    const target = 7 * 60 * 1000;
+    const grower = document.getElementsByClassName("growing-bar")
+
+    let passed = 0;
+    let percent = 0;
+    const timer = setInterval(function () {
+      if (percent < 100) {
+        passed = passed + 100
+        percent = passed / target * 100;
+        for (i = 0; i < grower.length; i++) {
+          grower[i].style.width = percent.toString() + "%";
+        }
+      }
+    }, 100);
+  </script>
+  <script type="text/javascript">
+  //86gt09zt4ykmr3w
+  const remoteStorage = new RemoteStorage();
+  remoteStorage.setApiKeys({dropbox: '86gt09zt4ykmr3w'});
+  const widget = new Widget(remoteStorage);
+  widget.attach('app');
+
+
+  remoteStorage.on('connected', () => {
+      const userAddress = remoteStorage.remote.userAddress;
+      alert(`${userAddress} connected their remote storage.`);
+    })
+
+    remoteStorage.on('network-offline', () => {
+      alert(`We're offline now.`);
+    })
+
+    remoteStorage.on('network-online', () => {
+      alert(`Hooray, we're back online.`);
+    })
+  </script>
+</body>
+
+</html>

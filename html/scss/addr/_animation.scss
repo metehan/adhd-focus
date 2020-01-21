@@ -1,0 +1,80 @@
+@keyframes blink {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeout {
+  animation: fadeout 0.35s ease 1;
+}
+
+@keyframes attention {
+  0% {
+    background-color: white;
+    color: black;
+  }
+  20% {
+    background-color: hsl(233, 68%, 64%);
+    color: white !important;
+  }
+  100% {
+    background-color: initial;
+    color: initial;
+  }
+}
+
+@keyframes grow {
+  0% {
+    width: 40px;
+    height: 40px;
+  }
+  50% {
+    width: 380px;
+    height: 40px;
+  }
+  100% {
+    height: 50vh;
+  }
+
+}
+
+
+@keyframes fadein8 {
+  0%, 80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeout {
+  animation: fadeout 0.35s ease 1;
+}

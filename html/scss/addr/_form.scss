@@ -1,0 +1,556 @@
+.form-holder {
+  label {
+    font-weight: 400;
+    color: $m-color;
+    background-color: white;
+  }
+
+  .form-group {
+    position: relative;
+    margin-top: 40px;
+
+    .tooltip {
+      visibility: hidden;
+      background: hsl(226, 73%, 63%);
+      border-radius: $border-radius;
+      color: $light-color;
+      font-size: $unit-3;
+      padding: $unit-2;
+      position: absolute;
+      min-height: 50px;
+      width: 100%;
+      z-index: 2;
+      bottom: calc(100% + 20px);
+      text-align: center;
+
+      &:after {
+        position: absolute;
+        top: 50px;
+        left: calc(50% - 10px);
+        width: 0;
+        border-top: 10px solid hsl(226, 73%, 63%);
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+        content: " ";
+        font-size: 0;
+        line-height: 0;
+      }
+    }
+
+    .input-error {
+      visibility: hidden;
+      background: hsl(14, 77%, 54%);
+      border-radius: $border-radius $border-radius 0 0;
+      color: $light-color;
+      font-size: 11px;
+      padding: $unit-1;
+      max-width: 70%;
+      position: absolute;
+      z-index: 1;
+      bottom: 100%;
+      margin-bottom: -1px;
+      right: 0;
+    }
+
+    &:hover .tooltip {
+      visibility: visible;
+      animation: fadein 0.5s;
+    }
+
+    &.has-error .input-error {
+      visibility: visible;
+      animation: fadein 1s;
+    }
+
+    &.has-error {
+      input,
+      textarea,
+      select {
+        font-weight: 500;
+        color: hsl(14, 77%, 54%);
+        border: none;
+        box-shadow: 0 1px 3px hsl(14, 77%, 54%);
+      }
+    }
+
+    .form-label {
+      border: hsl(201, 62%, 93%) solid 1px;
+      border-bottom: none;
+      border-radius: $border-radius $border-radius 0 0;
+      color: $dark-color;
+      font-size: 14px;
+      padding: $unit-o $unit-1;
+      position: absolute;
+      bottom: calc(-4px + 100%);
+      left: -1px;
+
+      &.toggle-label {
+        font-weight: 500;
+        text-align: center;
+        min-width: 70%;
+        left: 15%;
+        border: hsl(202, 57%, 86%) solid 1px;
+        border-bottom: none;
+      }
+    }
+
+    &.compact {
+      margin-top: 0px;
+      .form-label {display: none;}
+    }
+  }
+
+  input,
+  .form-input,
+  .picker,
+  textarea,
+  select {
+    font-weight: 500;
+    color: hsl(200, 65%, 27%);
+    border: none;
+    box-shadow: 0 1px 2px hsl(200, 64%, 77%);
+    transition: box-shadow 0.5s ease;
+    margin: 2px 0;
+
+    &:focus {
+      box-shadow: 0 0 6px hsl(200, 55%, 60%);
+    }
+  }
+
+  .merged-inputs {
+    display: flex;
+    position: relative;
+
+    .left {
+      margin-right: 2px;
+    }
+
+    .middle {
+      margin: auto 2px;
+    }
+
+    .right {
+      margin-left: 2px;
+    }
+
+    .wide {
+      flex-basis: 160%;
+    }
+    .narrow {
+      flex-basis: 60%;
+    }
+
+    .auto-show {
+      display: none;
+    }
+
+    &:hover {
+      .auto-show {
+        display: initial;
+      }
+      .auto-hide {
+        display: none;
+      }
+    }
+
+    .auto-show:focus {
+      display: block;
+
+      ~ .picker {
+        display: block;
+      }
+
+      ~ .auto-hide {
+        display: none;
+      }
+    }
+
+    .picker {
+      position: absolute;
+      border-radius: $border-radius;
+      left: 0px;
+      top: 96%;
+      width: 100%;
+      background-color: white;
+      z-index: 8;
+      display: none;
+      max-height: 200px;
+      overflow: auto;
+
+      &:hover {
+        display: block;
+      }
+
+      .item {
+        padding: 3px;
+        margin: 3px;
+        border-radius: 2px;
+        cursor: pointer;
+
+        &:nth-of-type(odd) {
+          background: #ececec;
+        }
+
+        &:hover {
+          background-color: bisque;
+        }
+      }
+    }
+  }
+
+  input.currency {
+    padding-right: 32px;
+  }
+  .input-currency {
+    //background-color: white;
+    user-select: none;
+    font-size: 12px;
+    font-weight: 600;
+    position: absolute;
+    z-index: 1;
+    margin: 10px;
+    top: 0;
+    right: 0;
+  }
+
+  .btn {
+    float: right;
+    border-radius: 4px;
+  }
+
+  .bottom {
+    text-align: center;
+    font-size: $unit-3;
+  }
+
+  .amount-buttons {
+    margin-top: -4px;
+    text-align: center;
+    button {
+      border-radius: 0 0 $border-radius $border-radius;
+      background-color: hsl(203, 67%, 98%);
+      border: hsl(202, 71%, 77%) solid 1px;
+      font-weight: 500;
+      border-top: none;
+      margin: 0 2px;
+    }
+  }
+
+  .readonly {
+    user-select: none;
+    background-color: rgb(246, 246, 246);
+    &.blocked {
+      cursor: not-allowed;
+    }
+  }
+
+  //////////////
+  // SELECTOR //
+  //////////////
+  .smart-selector {
+    input:hover + .selector {
+      input,
+      .list {
+        visibility: visible;
+      }
+    }
+
+    .selector {
+      position: relative;
+      top: -50px;
+      width: 100%;
+      height: 0px;
+
+      label {
+        display: block;
+        width: 100%;
+        position: relative;
+        top: -36px;
+        background-color: #ffffff01;
+        padding-top: 52px;
+        height: 34px;
+
+        &:hover {
+          height: initial;
+        }
+        &:hover input {
+          box-shadow: none;
+        }
+        &:hover input,
+        &:hover .list {
+          visibility: visible;
+        }
+        input,
+        input:focus {
+          box-shadow: none;
+          border: 1px solid lightblue;
+        }
+      }
+
+      input,
+      .list {
+        margin: 0;
+        visibility: hidden;
+        z-index: 5;
+      }
+
+      input:focus,
+      input:focus + .list {
+        visibility: visible;
+      }
+
+      .list {
+        border-radius: 0 0 $border-radius $border-radius;
+        background-color: white;
+        width: 100%;
+        position: relative;
+        top: -3px;
+        z-index: 222;
+        //box-shadow: 0px -1px 1px inset rgb(20, 103, 172);
+        border: 1px solid lightblue;
+        border-top: none;
+        overflow: auto;
+        max-height: 560px;
+
+        .item {
+          padding: 3px;
+          margin: 3px;
+          border-radius: 2px;
+          cursor: pointer;
+
+          &:nth-of-type(odd) {
+            background: #ececec;
+          }
+
+          &:hover {
+            background-color: bisque;
+          }
+
+          span {
+            display: block;
+          }
+          .name {
+            font-weight: 500;
+          }
+          .address {
+            font-size: smaller;
+          }
+        }
+      }
+    }
+  }
+
+  //////////////
+  // TOGGLE   //
+  //////////////
+  .ftoggle {
+    font-weight: 600;
+    text-align: center;
+    border-radius: 4px;
+    height: 2.2em;
+    margin: 2px;
+    background-color: #00000011;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 1px 2px hsl(200, 64%, 77%);
+    user-select: none;
+
+    &:hover {
+      box-shadow: 0 0 5px hsl(200, 64%, 77%);
+    }
+
+    .true,
+    .false {
+      position: absolute;
+      width: 50%;
+      left: 0;
+      top: 0;
+      height: 2.2em;
+      padding: 0.2em 0;
+      transition: 0.4s;
+      border-radius: 4px;
+      color: grey;
+    }
+
+    // ON
+    &.on .true {
+      color: black;
+      &.yesno {
+        background-color: hsl(100, 70%, 64%);
+      }
+      &.neutral {
+        background-color: hsl(285, 77%, 80%);
+      }
+    }
+
+    &.on .false {
+      left: 50%;
+    }
+
+    // OFF
+    &.off .false {
+      color: black;
+      &.yesno {
+        background-color: hsl(0, 90%, 74%);
+      }
+      &.neutral {
+        background-color: hsl(195, 65%, 67%);
+      }
+    }
+    &.off .true {
+      left: 50%;
+    }
+  }
+
+  //////////////
+  // LOCATION //
+  //////////////
+
+  .flocation {
+    .form-input {
+      border-bottom: none;
+      border-radius: $border-radius $border-radius 0 0;
+
+      &:focus + .location-picker {
+        box-shadow: 0 0 6px hsl(200, 55%, 60%);
+      }
+    }
+
+    .location-picker {
+      box-shadow: 0 1px 2px hsl(200, 64%, 77%);
+      transition: box-shadow 0.5s ease;
+      border-radius: 0 0 $border-radius $border-radius;
+      padding: 2px;
+      width: 100%;
+      height: 240px;
+      &.tall {
+        height: 480px;
+      }
+
+      .ol-attribution {
+        transform: matrix(0.6, 0, 0, 0.6, 45, 3);
+      }
+      .ol-zoom {
+        transform: matrix(0.6, 0, 0, 0.6, -3, -8);
+      }
+    }
+  }
+}
+
+// DATE TIME //
+
+.date-input {
+  &:hover {
+    .fdatetime {
+      display: block;
+    }
+  }
+}
+
+.fdatetime {
+  z-index: 9;
+  user-select: none;
+  display: none;
+  top: 0px;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 1px 2px hsl(200, 64%, 77%);
+  border-radius: 0 0 $border-radius $border-radius;
+  padding: 2px;
+  width: 100%;
+  max-width: 340px;
+
+  .month {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+    font-size: 12px;
+
+    .controls,
+    .time {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      div {
+        flex-grow: 1;
+        height: 22px;
+        margin: 1px 0.2%;
+        border-radius: 4px;
+        background-color: rgb(236, 235, 227);
+        box-shadow: inset 1px 1px 1px rgba(212, 211, 211, 0.6);
+
+        &.txt {
+          font-weight: bold;
+          min-width: 60px;
+          &:hover {
+            box-shadow: 0 0 6px hsl(200, 55%, 60%);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .time {
+      margin-top: 3px;
+      border-top: rgb(231, 228, 228) 1px dashed;
+      padding-top: 3px;
+      .txt {
+        padding: 4px;
+        font-size: 16px;
+        height: 32px;
+        background: linear-gradient(
+          to bottom,
+          rgba(236, 235, 227, 1) 0%,
+          rgba(209, 207, 209, 1) 49%,
+          rgba(217, 217, 217, 1) 50%,
+          rgba(201, 199, 201, 1) 100%
+        );
+      }
+
+      .pick {
+        background-color: rgb(233, 230, 230);
+        align-self: flex-end;
+        width: 13%;
+      }
+    }
+
+    .day {
+      width: 13%;
+      height: 22px;
+      margin: 1px 0.2%;
+      border-radius: 4px;
+      background-color: rgb(236, 235, 227);
+      box-shadow: inset 1px 1px 1px rgba(212, 211, 211, 0.6);
+      cursor: default;
+    }
+
+    .pick {
+      &:hover {
+        box-shadow: 0 0 6px hsl(200, 55%, 60%);
+        background-color: rgb(255, 255, 255);
+        color: black;
+        font-weight: bolder;
+      }
+      cursor: pointer;
+    }
+
+    .off {
+      color: rgb(68, 47, 13);
+      background-color: rgb(219, 218, 210);
+      font-weight: bold;
+    }
+
+    .selected {
+      background-color: hsl(200, 55%, 60%);
+      color: white;
+      font-weight: bolder;
+    }
+
+    .na {
+      background-color: rgb(245, 243, 243);
+      color: rgb(155, 155, 155);
+    }
+  }
+}

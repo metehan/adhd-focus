@@ -1,0 +1,103 @@
+/* -------------------------------------------------------------------------- */
+/*                                    PAGE                                    */
+/* -------------------------------------------------------------------------- */
+
+html,
+body,
+#app {
+  height: 100%;
+  font-family: Optima, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.app-container {
+  margin-bottom: $unit-12;
+  min-height: calc(100% - 2.4rem);
+  background-color: #ffffff;
+  //background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%23191e58' fill-opacity='0.12' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* --------------------------------- COLORS --------------------------------- */
+// Core colors
+$m-color: hsl(210, 29%, 24%) !default;
+$m-color-dark: darken($m-color, 3%) !default;
+$m-color-darker: darken($m-color, 5%) !default;
+$m-color-light: lighten($m-color, 3%) !default;
+$m-color-lighter: lighten($m-color, 5%) !default;
+
+$n-color: lighten($m-color, 37.5%) !default;
+$n-color-dark: darken($n-color, 3%) !default;
+$n-color-light: lighten($n-color, 3%) !default;
+
+// Other colors
+$ms-link-color: hsl(168.3, 75%, 35%) !default;
+$ms-text-color: hsl(210, 6%, 84%) !default;
+$ms-text-color-dark: hsl(210, 6%, 50%) !default;
+$ms-text-color-darker: hsl(210, 6%, 30%) !default;
+$visible-light: hsl(210, 3%, 87%);
+
+// BC colors
+.bc0, .bc00 {background: hsl(210, 03%, 87%)}
+.bc1, .bc01 {background: hsl(000, 70%, 64%)}
+.bc2, .bc02 {background: hsl(015, 70%, 64%)}
+.bc3, .bc03 {background: hsl(030, 70%, 64%)}
+.bc4, .bc04 {background: hsl(045, 70%, 64%)}
+.bc5, .bc05 {background: hsl(060, 70%, 64%)}
+.bc6, .bc06 {background: hsl(075, 70%, 64%)}
+.bc7, .bc07 {background: hsl(090, 70%, 64%)}
+.bc8, .bc08 {background: hsl(105, 70%, 64%)}
+.bc9, .bc09 {background: hsl(120, 70%, 64%)}
+      .bc10 {background: hsl(135, 70%, 64%)}
+      .bc11 {background: hsl(150, 70%, 64%)}
+      .bc12 {background: hsl(165, 70%, 64%)}
+      .bc13 {background: hsl(180, 70%, 64%)}
+      .bc14 {background: hsl(195, 70%, 64%)}
+      .bc15 {background: hsl(210, 70%, 64%)}
+      .bc16 {background: hsl(225, 72%, 70%)}
+      .bc17 {background: hsl(240, 74%, 74%)}
+      .bc18 {background: hsl(255, 72%, 70%)} 
+      .bc19 {background: hsl(270, 70%, 67%)}
+      .bc20 {background: hsl(285, 70%, 64%)}
+      .bc21 {background: hsl(300, 70%, 64%)}
+      .bc22 {background: hsl(315, 70%, 64%)}
+      .bc23 {background: hsl(330, 70%, 64%)}
+      .bc24 {background: hsl(345, 70%, 64%)}
+
+
+// BC colors
+.bcd0, .bcd00 {background: hsl(210, 03%, 37%)}
+.bcd1, .bcd01 {background: hsl(000, 50%, 44%)}
+.bcd2, .bcd02 {background: hsl(015, 50%, 44%)}
+.bcd3, .bcd03 {background: hsl(030, 25%, 44%)}
+.bcd4, .bcd04 {background: hsl(045, 50%, 36%)}
+.bcd5, .bcd05 {background: hsl(060, 35%, 44%)}
+.bcd6, .bcd06 {background: hsl(075, 50%, 44%)}
+.bcd7, .bcd07 {background: hsl(090, 40%, 44%)}
+.bcd8, .bcd08 {background: hsl(105, 50%, 44%)}
+.bcd9, .bcd09 {background: hsl(120, 50%, 44%)}
+       .bcd10 {background: hsl(135, 50%, 44%)}
+       .bcd11 {background: hsl(150, 50%, 44%)}
+       .bcd12 {background: hsl(165, 50%, 44%)}
+       .bcd13 {background: hsl(180, 45%, 44%)}
+       .bcd14 {background: hsl(195, 50%, 44%)}
+       .bcd15 {background: hsl(210, 50%, 44%)}
+       .bcd16 {background: hsl(225, 50%, 44%)}
+       .bcd17 {background: hsl(240, 50%, 44%)}
+       .bcd18 {background: hsl(255, 50%, 44%)} 
+       .bcd19 {background: hsl(270, 50%, 44%)}
+       .bcd20 {background: hsl(285, 50%, 44%)}
+       .bcd21 {background: hsl(300, 50%, 44%)}
+       .bcd22 {background: hsl(315, 50%, 44%)}
+       .bcd23 {background: hsl(330, 50%, 44%)}
+       .bcd24 {background: hsl(345, 50%, 44%)}
+
+.fc9 {color: hsl(0, 0%, 100%)}
+.fc8 {color: hsl(0, 0%,  90%)}
+.fc7 {color: hsl(0, 0%,  80%)}
+.fc6 {color: hsl(0, 0%,  70%)}
+.fc5 {color: hsl(0, 0%,  60%)}
+.fc4 {color: hsl(0, 0%,  48%)}
+.fc3 {color: hsl(0, 0%,  36%)}
+.fc2 {color: hsl(0, 0%,  24%)}
+.fc1 {color: hsl(0, 0%,  12%)}
+.fc0 {color: hsl(0, 0%,  02%)}
+
+.tb {font-weight: 600;}

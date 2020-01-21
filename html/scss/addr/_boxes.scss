@@ -1,0 +1,12 @@
+.boxed {
+  background-color: white;
+  border-radius: $unit-1;
+  margin: $unit-2 ;
+  padding: $unit-2;
+  border: $visible-light solid $unit-o;
+
+  &.nb {
+    border: none;
+    padding: 0;
+  }
+}

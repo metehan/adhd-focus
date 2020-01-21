@@ -1,0 +1,101 @@
+//.percentball is around line 60
+//TABLE CELLS
+.cell {
+  font-size: $unit-3;
+
+  &.new {
+    animation-name: attention;
+    animation-duration: 4s;
+  }
+
+  span {
+    display: block;
+    float: left;
+    clear: both;
+  }
+
+  .firstcol {
+    width: 40px;
+  }
+  .name {
+    font-size: $unit-4;
+    font-weight: 600;
+  }
+  .namenote {
+    padding: 0 6px;
+    color: $error-color !important;
+    font-weight: 400;
+    color: $m-color;
+  }
+  //.phone { font-weight: 600; }
+  .address {
+    color: $gray-color-dark;
+  }
+
+  .mark {
+    border-radius: $unit-3;
+    padding: 2px 10px 2px 0;
+    margin: 2px;
+    font-weight: 600;
+    
+    .ball {
+      border-radius: 0.5rem;
+      height: 1rem;
+      min-width: 1rem;
+      padding: 0 3px;
+      text-align: center;
+      margin: 0 8px 0 2px;
+      font-weight: 700;
+      box-shadow: inset 1px 1px 1px hsl(0, 0%, 0%, 0.6);
+      &.lighter {
+        background-color: hsl(0, 0%, 100%, 0.55);
+      }
+    }
+  }
+}
+
+//PERCENT BALL
+.percentball {
+  width: $unit-6;
+  height: $unit-6;
+  border-radius: 50%;
+  overflow: hidden;
+  background: hsl(0, 0%, 80%);
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: $unit-o $unit-1;
+  text-align: center;
+
+  .percent {
+    background-color: hsl(207, 100%, 50%);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    &.warn {
+      background-color: $warning-color;
+    }
+
+    &.done {
+      background-color: $success-color;
+    }
+
+    &.danger {
+      background-color: $error-color;
+      animation: blink 0.7s infinite;
+    }
+  }
+
+  .text {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px hsla(0, 0%, 20%, 0.6);
+    color: hsl(0, 0%, 100%);
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

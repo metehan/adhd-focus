@@ -1,0 +1,228 @@
+
+/* -------------------------------------------------------------------------- */
+/*                                LEDGER TABLE                                */
+/* -------------------------------------------------------------------------- */
+
+.ledger {
+  > div {
+    border-radius: $border-radius;
+    border-top: #e2e2e2 2px solid;
+    border-bottom: #e6e6e6 1px solid;
+    padding: 10px;
+    font-family: "Roboto Mono", monospace;
+    &.summary {
+      padding: 0 10px;
+      position: relative;
+      font-size: 0.9em;
+
+      .sum-info {
+        position: absolute;
+        left: 50%;
+        top: -8px;
+        padding: 1px 4px;
+        font-size: small;
+        background-color: #e2e2e2;
+        border-radius: $border-radius;
+      }
+    }
+
+    .info-tag {
+      background-color: #e2e2e2;
+      border-radius: 0 2em 2em 0;
+      padding: 4px 4px 4px 8px;
+      font-size: 12px;
+      position: absolute;
+      margin: -13px 0 0 -22px;
+      text-align: center;
+
+      .id {
+        min-width: 30px;
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      .date {
+        margin-left: 14px;
+        background-color: #595685;
+        border-radius: 1em;
+        padding: 2px;
+        color: white;
+        width: 124px;
+        display: inline-block;
+      }
+    }
+
+    .header {
+      min-height: 50px;
+    }
+
+    .footer {
+      min-height: 50px;
+
+      .note {
+        padding: 4px 8px;
+        border-left: 3px solid #e6e6e6;
+        border-radius: 4px;
+        margin: 6px;
+        font-style: italic;
+        background-color: rgba(255, 255, 255, 0.479);
+        display: block;
+        font-family: cursive;
+      }
+    }
+  }
+}
+
+.ledger,
+.ledger-form {
+  .lborder {
+    border-left: #e6e6e6 2px solid;
+  }
+
+  .lines {
+    border: #e6e6e6 1px solid;
+    margin-top: -1px;
+    border-radius: $border-radius;
+    font-weight: 500;
+
+    div {
+      padding: 3px 5px 3px 0;
+    }
+
+    &.mark {
+      color: rgb(140, 0, 255);
+    }
+
+    &:hover {
+      background-color: #33333325;
+    }
+
+    .hover-switch {
+      min-height: 44px;
+    }
+  }
+
+  .line-group {
+    position: relative;
+
+    .col-6 {padding-top:8px;}
+
+    .amount-btns {
+      position: absolute;
+      width:10px;
+      left:-12px;
+      margin-top: -52px;
+
+
+      &.credit {
+        left: calc(16.66666667% - 16px);
+      }
+
+      button {
+        border-radius: $border-radius;
+        background-color: hsl(0, 0%, 95%);
+        border: #e6e6e6 solid 1px;
+        font-weight: 500;
+        border-top: none;
+        overflow: hidden;
+        padding: 0px 4px;
+        margin: 1px 0 0 0;
+        width: 20px;
+      }
+    }
+
+    .not-equal{
+      position: absolute;
+      left: calc(83.33333333% - 18px);
+      color: white;
+      background-color: rgb(170, 23, 23);
+      line-height: 20px;
+      font-size: 22px;
+      width: 24px;
+      height: 24px;
+      border-radius: 12px;
+      text-align: center;
+      padding: 0;
+      margin-top: -12px;
+      font-weight: bold;
+      z-index: 4;
+      box-shadow: 0 0 6px 2px #333333AA;
+    }
+  }
+
+  .acc-id {
+    padding: 4px 8px;
+    margin: 4px;
+    border-radius: $border-radius;
+    background-color: rgba(228, 230, 213, 0.726);
+    font-family: "Roboto Mono", monospace;
+  }
+
+  .input {
+    margin: 1px 2px;
+  }
+
+  .auto-show {
+    height: 100%;
+    width: 100%;
+    margin-left: 6px;
+  }
+  .hover-switch {
+    position: relative;
+  }
+
+  //TODO: Remove this. (Duplicate)
+  .auto-show:focus {
+    display: block;
+
+    ~ .picker {
+      display: block !important;
+    }
+
+    ~ .auto-hide {
+      display: none;
+    }
+  }
+
+  //TODO: Remove this. (Duplicate)
+  .picker {
+    position: absolute;
+    border-radius: $border-radius;
+    left: 0px;
+    top: 95%;
+    margin: 0 6px;
+    width: calc(100% - 6px);
+    background-color: white;
+    z-index: 8;
+    display: none;
+    max-height: 200px;
+    overflow: auto;
+
+    &:hover {
+      display: block;
+    }
+
+    .item {
+      padding: 3px;
+      margin: 3px;
+      border-radius: 2px;
+      cursor: pointer;
+
+      &:nth-of-type(odd) {
+        background: #ececec;
+      }
+
+      &:hover {
+        background-color: bisque;
+      }
+    }
+  }
+}
+
+.ledger > div:nth-of-type(odd) {
+  background: #f0f5ef;
+}
+
+.ledger > div:nth-of-type(even) {
+  background: #faf9f6;
+}

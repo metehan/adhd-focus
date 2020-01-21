@@ -1,0 +1,203 @@
+.info-card {
+  flex-grow: 1;
+  flex-basis: 0;
+  margin: 3px;
+  padding: 4px;
+  text-align: center;
+  border-radius: $border-radius;
+  color: white;
+  box-shadow: 1px 1px 2px #33333377;
+  &.blue {
+    background: linear-gradient(to bottom right, hsl(210, 70%, 64%), hsl(210, 50%, 44%));
+  }
+  &.orange {
+    background: linear-gradient(to bottom right, hsl(015, 70%, 64%), hsl(015, 50%, 44%));
+  }
+  &.green {
+    background: linear-gradient(to bottom right, hsl(135, 70%, 64%), hsl(135, 50%, 44%));
+  }
+
+  .focus {
+    &.number {
+      font-size: 34px;
+      font-weight: bold;
+    }
+  }
+
+  .subject {
+    font-weight: 600;
+  }
+}
+
+.info-status {
+  margin: 3px;
+  padding: 5px;
+  border-radius: $border-radius;
+  box-shadow: 1px 1px 2px #33333377;
+  background: linear-gradient(to bottom right, hsl(208, 100%, 97%), hsl(0, 0%, 88%));
+
+  .company {
+    font-size: larger;
+    font-weight: bold;
+    color: #444;
+  }
+  div {
+    margin: 1px;
+  }
+  strong {
+    font-weight: 600;
+  }
+
+  // [:div.status-percent
+  //            [:span.title "Yoğunluk"]
+  //            [:div.percent-bg
+  .status-percent {
+    margin: 3px;
+    .title {
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .percent-bg {
+      margin: -3px 0 0 0;
+    }
+  }
+
+  .delivery-card {
+    background-color: #fff;
+    border-radius: $border-radius;
+    margin: 10px 0 0 0;
+    padding: 3px;
+    .color {
+      margin: 6px 2px 6px 6px;
+      width: 20px;
+      height: 20px;
+      border-radius: 30%;
+    }
+    .name {
+      flex-grow: 1;
+      margin: 4px;
+      font-weight: 600;
+    }
+    .car,
+    .pos {
+      flex-basis: 0;
+      flex-grow: 1;
+      font-size: small;
+      padding: 2px;
+      background-color: #eee;
+      border-radius: 8px;
+      i {
+        margin: 0 8px;
+        font-size: smaller;
+      }
+    }
+
+    .status {
+      color: white;
+      border-radius: 8px;
+      height: 16px;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      margin: 8px;
+      padding: 0px 4px;
+      &.on {
+        background-color: rgb(49, 189, 44);
+      }
+      &.pause {
+        background-color: rgb(38, 121, 216);
+      }
+      &.off {
+        background-color: rgb(212, 81, 37);
+      }
+    }
+
+    &.off {
+      background-color: #eee;
+      .color {
+        background-color: rgb(161, 161, 161);
+      }
+      transform: scale(0.7);
+      margin: -2px 0 -10px;
+      color: #666;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  INVENTORY                                 */
+/* -------------------------------------------------------------------------- */
+
+.inventory-card {
+  background-color: #fff;
+  border-radius: $border-radius;
+  width: 100%;
+  padding:4px;
+
+  div {overflow: hidden;
+  max-height: 1.8rem;}
+  
+  .color {
+    margin: 6px 2px 6px 6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 30%;
+  }
+  .name {
+    flex-grow: 1;
+    margin: 4px;
+    font-weight: 600;
+  }
+  .key {
+    margin: 6px 6px 6px 6px;
+    border-radius: 8px;
+    padding: 0 4px;
+    background-color: #eee;
+  }
+
+  .brand,
+  .price {
+    flex-basis: 0;
+    flex-grow: 1;
+    margin: 0 3px;
+    text-align: center;
+    font-weight: 400;
+    padding: 2px;
+    background-color: #eee;
+    border-radius: 8px;
+    i {
+      margin: 0 8px;
+      font-size: smaller;
+    }
+  }
+
+  .status {
+    color: white;
+    border-radius: 8px;
+    height: 16px;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin: 8px;
+    padding: 0px 4px;
+    &.on {
+      background-color: rgb(49, 189, 44);
+    }
+    &.pause {
+      background-color: rgb(38, 121, 216);
+    }
+    &.off {
+      background-color: rgb(212, 81, 37);
+    }
+  }
+
+  &.off {
+    background-color: #eee;
+    .color {
+      background-color: rgb(161, 161, 161);
+    }
+    transform: scale(0.7);
+    margin: -2px 0 -10px;
+    color: #666;
+  }
+}
