@@ -1,1 +1,1 @@
-sass --watch /scss/addr/addr.scss /app.css
+sass --watch scss/addr/addr.scss app.css
