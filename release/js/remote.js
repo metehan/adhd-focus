@@ -4,7 +4,6 @@
     changeEvents: { local: true, window: true, remote: true, conflicts: true }
   });
 
-
   function init() {
     remoteStorage.access.claim('addfocus', 'rw');
     remoteStorage.setApiKeys({

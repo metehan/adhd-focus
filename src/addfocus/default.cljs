@@ -20,8 +20,8 @@
 
 
 (defn ^:export render []
-  (r/render [masterview/index]
-                  (js/document.getElementById "shadow-re-frame")))
+  (r/render [masterview/index] 
+            (js/document.getElementById "app")))
 
 (defn ^:export init []
   (rf/dispatch-sync [:initialize])

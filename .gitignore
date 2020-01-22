@@ -1,8 +1,7 @@
 .cpcache
 .nrepl-port
 .idea
-.vscode/*
-!.vscode/snippets
+.vscode
 
 node_modules
 package-lock.json

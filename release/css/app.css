@@ -3228,7 +3228,7 @@ polygon.rs-logo-shape,
   box-shadow: #33333344 3px 3px 6px;
   z-index: 10;
 }
-.corner .add-item {
+.corner .task-list {
   display: none;
   width: 340px;
   height: 100%;
@@ -3237,13 +3237,19 @@ polygon.rs-logo-shape,
   float: left;
   padding: 2px 10px;
 }
+.corner li {
+  cursor: pointer;
+}
+.corner li:hover {
+  color: #e64d1a;
+}
 .corner:hover {
   box-shadow: rgba(22, 49, 54, 0.5) 1px 1px 6px;
   width: 380px;
   height: 50vh;
   animation: grow 0.6s ease-in;
 }
-.corner:hover .add-item {
+.corner:hover .task-list {
   display: block;
 }
 .corner .i {

@@ -251,7 +251,8 @@
   box-shadow: #33333344 3px 3px 6px;
   z-index: 10;
 
-  .add-item {
+
+  .task-list {
     display: none;
     width: 340px;
     height: 100%;
@@ -260,13 +261,22 @@
     color: hsl(30, 30%, 20%);
     float:left;
     padding: 2px 10px;
-}
+    }
+
+    li {
+      cursor: pointer;
+      &:hover {
+        color: hsl(15, 80%, 50%)
+      }
+    }
+
+
   &:hover {
     box-shadow: hsl(189, 42%, 15%, 50%) 1px 1px 6px;
     width: 380px;
     height: 50vh;
     animation: grow 0.6s ease-in;
-    .add-item {display: block;}}
+    .task-list {display: block;}}
   
     .i {
     float:left;
