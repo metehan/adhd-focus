@@ -3086,10 +3086,21 @@ polygon.rs-logo-shape,
   top: -260px;
   left: 30vw;
   width: 40vw;
-  transition: all 0.6s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+#app .add-task .invisible-handle {
+  z-index: -100;
+  width: 60vw;
+  margin-left: -10vw;
+  height: 400px;
+  position: absolute;
+  display: none;
 }
 #app .add-task:hover {
   top: 0px;
+}
+#app .add-task:hover .invisible-handle {
+  display: block;
 }
 #app .add-task .task-form {
   user-select: none;
