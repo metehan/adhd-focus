@@ -2646,7 +2646,7 @@ a.text-error:visited {
 }
 
 .growing-bar {
-  transition: all 1s linear;
+  transition: all 0.1s linear;
   width: 0;
   background-color: rgba(116, 199, 0, 0.6);
   height: 2em;

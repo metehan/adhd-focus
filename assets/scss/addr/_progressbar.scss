@@ -80,7 +80,7 @@ $growColor: rgba($lime, .6);
 
 .growing-bar
 {
-    transition: all 1s linear;
+    transition: all 0.1s linear;
     width: 0;
     background-color: $growColor;
     height: 2em;

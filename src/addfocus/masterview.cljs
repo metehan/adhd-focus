@@ -77,7 +77,7 @@
         [:div {:class "face side-b"}]
         [:div {:class "face side-1"}
          [:div.growing-bar]]]]]
-     [:button
+     [:button#timer-button
       {:on-click
        (fn [] (
                (.timerBar js/window (:time task) 0 #(rf/dispatch [:active-task 10]))
