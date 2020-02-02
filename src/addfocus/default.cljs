@@ -24,6 +24,7 @@
             (js/document.getElementById "app")))
 
 (defn ^:export init []
+  (.log js/console js/window)
   (rf/dispatch-sync [:initialize])
   (render))
 

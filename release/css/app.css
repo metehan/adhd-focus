@@ -3081,11 +3081,11 @@ polygon.rs-logo-shape,
   border-bottom: #d98026 2px solid;
 }
 #app .add-task {
-  z-index: 20;
+  z-index: 5;
   position: absolute;
   top: -260px;
-  left: 30vw;
-  width: 40vw;
+  left: 20vw;
+  width: 60vw;
   transition: all 0.4s ease-in-out;
 }
 #app .add-task .invisible-handle {
@@ -3095,12 +3095,6 @@ polygon.rs-logo-shape,
   height: 400px;
   position: absolute;
   display: none;
-}
-#app .add-task:hover {
-  top: 0px;
-}
-#app .add-task:hover .invisible-handle {
-  display: block;
 }
 #app .add-task .task-form {
   user-select: none;
@@ -3126,6 +3120,7 @@ polygon.rs-logo-shape,
 }
 #app .add-task .task-form .time-selector span {
   display: inline-block;
+  margin: 3px;
   background-color: #e6e6e6;
   cursor: pointer;
   border-bottom: 2px solid #666666;
@@ -3167,12 +3162,15 @@ polygon.rs-logo-shape,
   margin-bottom: 12px;
 }
 #app .add-task .task-form .switch {
-  width: unset;
-  margin: 8px;
+  display: inline-block;
+  margin: 0 4px;
 }
 #app .add-task .task-form .switch span {
   cursor: pointer;
   text-decoration: line-through;
+}
+#app .add-task .task-form .check {
+  margin: 0 4px;
 }
 #app .add-task .task-form .check:checked + span {
   font-weight: 600;
@@ -3191,6 +3189,12 @@ polygon.rs-logo-shape,
   background-color: #fff2e6;
   border-radius: 0 0 10px 10px;
   box-shadow: #33333344 3px 4px 3px;
+}
+#app .add-task:hover {
+  top: 0px;
+}
+#app .add-task:hover .invisible-handle {
+  display: block;
 }
 #app .active-task {
   position: absolute;
@@ -3230,7 +3234,7 @@ polygon.rs-logo-shape,
 }
 .corner .task-list {
   display: none;
-  width: 340px;
+  width: calc(100% - 40px);
   height: 100%;
   overflow-y: auto;
   color: #423324;
@@ -3246,6 +3250,7 @@ polygon.rs-logo-shape,
 .corner:hover {
   box-shadow: rgba(22, 49, 54, 0.5) 1px 1px 6px;
   width: 380px;
+  max-width: 90vw;
   height: 50vh;
   animation: grow 0.6s ease-in;
 }
@@ -3287,6 +3292,22 @@ polygon.rs-logo-shape,
 }
 .corner.tr .icon, .corner.br .icon {
   float: right;
+}
+
+@media screen and (max-width: 700px) {
+  #app .add-task {
+    left: 10vw;
+    width: 80vw;
+    top: -360px;
+  }
+  #app .add-task:hover {
+    top: 0px;
+  }
+  #app .add-task .task-form {
+    user-select: none;
+    height: 355px;
+    padding: 10px;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

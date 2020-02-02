@@ -1,69 +1,51 @@
 (ns addfocus.masterview
   (:require
-   [re-frame.core :as rf]))
+   [reagent.core :as r]
+   [re-frame.core :as rf]
+   [tools.time :as time]))
 
 (defn add-task []
-  [:div.add-task
-   [:div.invisible-handle]
-   [:div.task-form
-    [:label.form-label "Task"]
-    [:input.text-input {:type "text"}]
-    [:label.form-label "Time"]
-    [:div.time-selector
-     [:label
-      [:input {:type "radio", :name "time"}]
-      [:span " 1"]]
-     [:label
-      [:input {:type "radio", :name "time"}]
-      [:span " 2"]]
-     [:label
-      [:input {:type "radio", :name "time"}]
-      [:span " 3"]]
-     [:label
-      [:input {:type "radio", :name "time"}]
-      [:span " 5"]]
-     [:label
-      [:input {:type "radio", :name "time"}]
-      [:span " 8"]]
-     [:label
-      [:input {:type "radio", :name "time"}]
-      [:span "10"]]
-     [:label
-      [:input {:type "radio", :name "time"}]
-      [:span "15"]]
-     [:label
-      [:input {:type "radio", :name "time"}]
-      [:span "20"]]
-     [:label
-      [:input {:type "radio", :name "time"}]
-      [:span "25"]]
-     [:label
-      [:input {:type "radio", :name "time"}]
-      [:span "30"]]
-     [:label
-      [:input {:type "radio", :name "time"}]
-      [:span "40"]]
-     [:label
-      [:input {:type "radio", :name "time"}]
-      [:span "50"]]
-     [:label
-      [:input {:type "radio", :name "time"}]
-      [:span "60"]]]
-    [:div.clearfix]
-    [:div.columns.col-gapless
-     [:div.column.col-6
-      [:button.start-now "Start now"]]
-     [:div.column.col-6.text-right
-      [:div.switchers
-       [:label.switch
-        [:input.check {:type "checkbox", :name "i"}]
-        [:span]]
-       [:label.switch
-        [:input.check {:type "checkbox", :name "u"}]
-        [:span]]]
+  (r/with-let
+    [task (r/atom {:task ""
+                   :time 25
+                   :important false
+                   :urgent false})
+     pick-time (fn [x] (swap! task assoc :time x))]
+    [:div.add-task
+     [:div.invisible-handle]
+     [:div.task-form
+      [:label.form-label "Task"]
+      [:input.text-input
+       {:type "text"
+        :on-change #(swap! task assoc :task (.. % -target -value))}]
+      [:label.form-label "Time " (:time @task)]
+      [:div.time-selector
+       (for [x [1 2 3 5 8 10 15 20 25 30 40 50 60]]
+         [:label {:key x}
+          [:input {:on-click #(pick-time x) :type "radio", :name "time"}]
+          [:span (str x)]])]
       [:div.clearfix]
-      [:button "Do later"]]]]
-   [:div.handle "Add New"]])
+      [:div.columns.col-gapless
+       [:div.column.col-6
+        [:button.start-now "Start now"]]
+       [:div.column.col-6.text-right
+        [:div.switchers
+         [:label.switch
+          [:input.check
+           {:on-change #(swap! task assoc
+                               :important (not (:important @task)))
+            :type "checkbox" :name "i"}]
+          [:span "Important"]]
+         [:label.switch
+          [:input.check
+           {:on-change #(swap! task assoc
+                               :urgent (not (:urgent @task)))
+            :type "checkbox" :name "u"}]
+          [:span "Urgent"]]]
+        [:div.clearfix]
+        [:button
+         {:on-click #(rf/dispatch [:new-task @task])} "Do later"]]]]
+     [:div.handle "Add New"]]))
 
 (defn task-list [{:keys [name sub-to]}]
   [:div.task-list
@@ -71,28 +53,45 @@
    [:ul
     (for
      [x @(rf/subscribe [sub-to])]
-      [:li 
-       {:on-click #(rf/dispatch [:active-task (:id x)])} 
+      [:li
+       {:on-click #(rf/dispatch [:active-task (:id x)])}
        (:task x)])]])
 
 (defn active-task [task]
-  [:div.active-task
-   [:div.task-name "- " (:task task)]
-   [:div.start "17:23"]
-   [:div.end "18:13"]
-   [:article
-    [:div.chart
-     [:div {:class "bar bar-0 lime"}
-      [:div {:class "face top"}
-       [:div.growing-bar]]
-      [:div {:class "face side-0"}
-       [:div.growing-bar]]
-      [:div {:class "face floor"}
-       [:div.growing-bar]]
-      [:div {:class "face side-a"}]
-      [:div {:class "face side-b"}]
-      [:div {:class "face side-1"}
-       [:div.growing-bar]]]]]])
+  (r/with-let [start (r/atom (time/now))]
+    [:div.active-task
+     [:div.task-name "- " (:task task)]
+     [:div.start (time/unix->time @start)]
+     [:div.end (time/unix->time
+                (+ @start (* (:time task) 60000)))]
+     [:article
+      [:div.chart
+       [:div {:class "bar bar-0 lime"}
+        [:div {:class "face top"}
+         [:div.growing-bar]]
+        [:div {:class "face side-0"}
+         [:div.growing-bar]]
+        [:div {:class "face floor"}
+         [:div.growing-bar]]
+        [:div {:class "face side-a"}]
+        [:div {:class "face side-b"}]
+        [:div {:class "face side-1"}
+         [:div.growing-bar]]]]]
+     [:button
+      {:on-click
+       (fn [] (
+               (.timerBar js/window (:time task) 0 #(rf/dispatch [:active-task 10]))
+               (reset! start (time/now))))}
+      "start"]
+     [:button
+      {:on-click
+       (fn [] (.stopTimerBar js/window))}
+      "stop"]]))
+
+;start timer - set start and end times / start green bar
+;pause timer - pause green bar / remove end time 
+;end timer - play notification sound / add minutes 
+
 
 (defn index []
   [:<>
@@ -101,28 +100,28 @@
     [:div.icon
      [:i.fa.fa-list]]
     [:div [task-list
-           {:name "Important / Urgent" 
+           {:name "Important / Urgent"
             :sub-to :task/iu}]]]
 
    [:div.corner.tr
     [:div.icon
      [:i.fa.fa-list]]
     [:div [task-list
-           {:name "Important" 
+           {:name "Important"
             :sub-to :task/i}]]]
 
    [:div.corner.bl
     [:div.icon
      [:i.fa.fa-list]]
     [:div [task-list
-           {:name "Urgent" 
+           {:name "Urgent"
             :sub-to :task/u}]]]
 
    [:div.corner.br
     [:div.icon
      [:i.fa.fa-list]]
     [:div [task-list
-           {:name "Trivial" 
+           {:name "Trivial"
             :sub-to :task/trivia}]]]
 
    [active-task @(rf/subscribe [:active-task])]])
