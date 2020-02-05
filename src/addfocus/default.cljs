@@ -6,25 +6,22 @@
    [addfocus.events]
    [addfocus.subs]))
 
-(defn counter
-  "Given a counter id and its current value, render it as an interactive widget."
-  [id]
-  (let [counter-value @(rf/subscribe [::counter id])]
-    [:div {:on-click #(rf/dispatch [:inc-counter id])
-           :style    {:padding    20
-                      :margin     "10px 0"
-                      :background "rgba(0,0,0,0.05)"
-                      :cursor     "pointer"}}
-     (str "Counter " (name id) ": ")
-     counter-value]))
-
+(defn load-data []
+  (.loadRemoteData 
+   js/window 
+   "tasks"
+   (fn [data] 
+     (rf/dispatch 
+      [:load-data :tasks (js->clj data :keywordize-keys true)]))))
 
 (defn ^:export render []
-  (r/render [masterview/index] 
+  (r/render [masterview/index]
             (js/document.getElementById "app")))
 
 (defn ^:export init []
-  (.log js/console js/window)
-  (rf/dispatch-sync [:initialize])
-  (render))
+  (do
+    (rf/dispatch-sync [:initialize])
+    (render)
+    (.connectRemote js/window)
+    (load-data)))
 

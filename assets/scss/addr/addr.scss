@@ -77,14 +77,10 @@
 //@import "tools";
 //@import "realledger";
 @import "progressbar";
-@import "rswidget";
 
-#app{
-  font-family: 'Architects Daughter', cursive;
-  background: radial-gradient(
-   ellipse at center,
-   hsl(30, 100%, 100%) 0%, 
-   hsl(30, 70%, 70%) 150%);
+#app {
+  font-family: "Architects Daughter", cursive;
+  background: radial-gradient(ellipse at center, hsl(30, 100%, 100%) 0%, hsl(30, 70%, 70%) 150%);
 
   width: 100vw;
   height: 100vh;
@@ -94,8 +90,8 @@
     z-index: 5;
     position: absolute;
     top: -260px;
-    left:20vw;
-    width:60vw;
+    left: 20vw;
+    width: 60vw;
     transition: all 0.4s ease-in-out;
 
     .invisible-handle {
@@ -112,8 +108,9 @@
       height: 255px;
       padding: 10px;
 
-      .form-label, .text-input {
-        float:left;
+      .form-label,
+      .text-input {
+        float: left;
         width: 100%;
       }
 
@@ -122,11 +119,12 @@
         font-size: 1.1rem;
       }
 
-      .text-input, button {
+      .text-input,
+      button {
         border-radius: 6px;
         border: none;
         box-shadow: 1px 1px 3px inset hsl(30, 0%, 70%);
-        margin: 4px auto;
+        margin: 4px;
       }
 
       .time-selector {
@@ -137,7 +135,7 @@
           background-color: hsl(30, 0%, 90%);
           cursor: pointer;
           border-bottom: 2px solid hsl(30, 0%, 40%);
-          width:26px;
+          width: 26px;
           height: 20px;
           border-radius: 6px;
           padding: 0 4px;
@@ -145,11 +143,12 @@
           text-align: center;
 
           &:hover {
-          border-bottom: none;
-          background-color: hsl(55, 100%, 39%);
-          color:white;
-          font-weight: bolder;
-        }}
+            border-bottom: none;
+            background-color: hsl(55, 100%, 39%);
+            color: white;
+            font-weight: bolder;
+          }
+        }
 
         input {
           display: none;
@@ -157,11 +156,11 @@
 
         input:checked + span {
           background-color: hsl(85, 100%, 39%);
-          color:white;
+          color: white;
           font-weight: bolder;
-        } 
+        }
       }
-      
+
       button {
         box-shadow: none;
         border-bottom: 2px solid hsl(30, 0%, 40%);
@@ -171,16 +170,16 @@
         &:hover {
           border-bottom: none;
           background-color: hsl(85, 100%, 39%);
-          color:white;
+          color: white;
           font-weight: bolder;
         }
       }
 
       .switchers {
-        float: right;
+        float: left;
         margin-bottom: 12px;
       }
-      
+
       .switch {
         display: inline-block;
         margin: 0 4px;
@@ -195,12 +194,16 @@
       }
 
       .check:checked + span {
-        font-weight: 600;;
+        font-weight: 600;
         text-decoration: unset;
+      }
+
+      .saved {
+        margin-left: 10px;
       }
     }
 
-    .handle{
+    .handle {
       margin: 0 auto;
       padding-top: 10px;
       font-size: 1rem;
@@ -210,32 +213,58 @@
       box-shadow: #33333344 3px 4px 3px;
     }
 
-    .task-form, .handle {
+    .task-form,
+    .handle {
       background-color: hsl(30, 100%, 95%);
       border-radius: 0 0 10px 10px;
       box-shadow: #33333344 3px 4px 3px;
     }
 
-
-    &:hover{ //.add-task:hover 
-      top: 0px; 
+    &:hover {
+      //.add-task:hover
+      top: 0px;
       .invisible-handle {
         display: block;
       }
     }
   }
 
-
-  .active-task{
+  .active-task {
     position: absolute;
     top: 30%;
     width: 50%;
     left: 25%;
   }
-  .task-name {font-size: 2rem; text-align: center;}
-  .start, .end {font-size: 1.2rem; position: absolute;}
-  .start {left: -3.5vw; margin-top: 7.5rem}
-  .end {right: -3.5vw; margin-top: 7.5rem}
+  .task-name {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .start,
+  .end {
+    font-size: 1.2rem;
+    position: absolute;
+  }
+  .start {
+    left: -3.5vw;
+    margin-top: 7.5rem;
+  }
+  .end {
+    right: -3.5vw;
+    margin-top: 7.5rem;
+  }
+
+  .buttons {
+    text-align: center;
+    .fa {
+      font-size: 3rem;
+      cursor: pointer;
+      color: hsl(30, 0%, 40%, 40%);
+      margin: 4px;
+      &:hover {
+        color: hsl(85, 100%, 39%);
+      }
+    }
+  }
 }
 
 .corner {
@@ -251,84 +280,216 @@
   box-shadow: #33333344 3px 3px 6px;
   z-index: 10;
 
-
   .task-list {
     display: none;
-    width: calc(100% - 40px);
     height: 100%;
+    width: 100%;
     overflow-y: auto;
-
+    
     color: hsl(30, 30%, 20%);
-    float:left;
-    padding: 2px 10px;
+    float: left;
+    
+    h5 {
+      margin: 5px auto 5px 46px;
     }
+  }
 
-    li {
-      cursor: pointer;
-      &:hover {
-        color: hsl(15, 80%, 50%)
-      }
+  ul {
+    //border: thin red solid;
+    padding: 0 4px ;
+  }
+
+  li {
+    cursor: pointer;
+    &:hover {
+      color: hsl(15, 80%, 50%);
     }
-
+  }
 
   &:hover {
-    box-shadow: hsl(189, 42%, 15%, 50%) 1px 1px 6px;
-    width: 380px;
-    max-width: 90vw;
-    height: 50vh;
-    animation: grow 0.6s ease-in;
-    .task-list {display: block;}}
-  
-    .i {
-    float:left;
+  box-shadow: hsl(189, 42%, 15%, 50%) 1px 1px 6px;
+  width: 380px;
+  max-width: 90vw;
+  height: 48vh;
+  animation: grow 0.6s ease-in;
+  .task-list {
+    display: block;
+  }
+  }
+
+  .i {
+    float: left;
   }
 
   .icon {
-      display: block;
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      float: left;
-      text-align: center;
-      background-color: hsl(30, 100%, 100%);
-      
-      i {
-        padding: 9px 8px;
-        color: hsl(85, 100%, 39%);
-        font-size: 20px;
-      }
+    display: block;
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    float: left;
+    text-align: center;
+    background-color: hsl(30, 100%, 100%);
+
+    i {
+      padding: 9px 8px;
+      color: hsl(85, 100%, 39%);
+      font-size: 20px;
     }
+  }
 
-  &.tl{top: 0; left:0}
-  &.tr{top: 0; right:0}
-  &.bl{bottom: 0; left:0}
-  &.br{bottom: 0; right:0}
+  &.tl {
+    top: 0;
+    left: 0;
+  }
+  &.tr {
+    top: 0;
+    right: 0;
+  }
+  &.bl {
+    bottom: 0;
+    left: 0;
+  }
+  &.br {
+    bottom: 0;
+    right: 0;
+  }
 
-  &.tr, &.br {
+  &.tr,
+  &.br {
     .icon {
       float: right;
     }
   }
 }
 
-
 @media screen and (max-width: 700px) {
   #app {
     .add-task {
-    left:10vw;
-    width:80vw;
-    top: -360px;
+      left: 10vw;
+      width: 80vw;
+      top: -360px;
 
-    &:hover {
-      top:0px
-    }
+      &:hover {
+        top: 0px;
+      }
 
-    .task-form {
-      user-select: none;
-      height: 355px;
-      padding: 10px;
+      .task-form {
+        user-select: none;
+        height: 355px;
+        padding: 10px;
+      }
     }
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                  SETTINGS                                  */
+/* -------------------------------------------------------------------------- */
+
+#settings {
+  background-color: hsl(30, 70%, 95%, 90%);
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px hsl(30, 0%, 40%, 40%);
+  z-index: 24;
+  position: relative;
+  top: 10vh;
+  left: 10vw;
+  width: 80vw;
+  height: 80vh;
+  display: none;
+
+  &.open {
+    display: block;
+  }
+
+  .close-button {
+    background-color: hsl(30, 70%, 95%, 90%);
+    border-radius: 10px 10px 0 0;
+    width: 30px;
+    height: 24px;
+    padding-left: 7px;
+    position: absolute;
+    right: 10px;
+    top: -24px;
+    border: 1px solid hsl(30, 0%, 40%, 40%);
+    border-bottom: none;
+    cursor: pointer;
+    &:hover {
+      color: #000;
+    }
+  }
+
+  .header {
+    padding: 12px;
+  }
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                DOWN BUTTONS                                */
+/* -------------------------------------------------------------------------- */
+
+.down-buttons {
+  position: absolute;
+  bottom: 0;
+  left: 40vw;
+  width: 20vw;
+  text-align: center;
+  list-style: none;
+  color: black;
+  margin: 0;
+
+  .litext {
+    display: none;
+    position: absolute;
+    top: -28px;
+    margin-left: -84px;
+    width: 200px;
+    text-align: center;
+    left: -2px;
+    background-color: none;
+  }
+
+  li {
+    position: relative;
+    display: inline-block;
+    opacity: 0.5;
+    background-color: hsl(30, 70%, 50%);
+    border-radius: 4px 4px 0 0;
+    margin: 0 2px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+
+    &:hover {
+      opacity: 1;
+      .litext {
+        display: block;
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            REMOTE STORAGE WIDGET                           */
+/* -------------------------------------------------------------------------- */
+
+#remotestorage-widget {
+  position: absolute !important;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+}
+
+.rs-closed {
+  max-width: 350px !important;
+  background-color: #fff !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.2) !important;
+  opacity: 1 !important;
+}
+
+.rs-closed:hover {
+  cursor: pointer;
+  opacity: 1;
+}

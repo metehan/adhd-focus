@@ -1,5 +1,5 @@
 
-
+window.connectRemote = function() {
   const remoteStorage = new RemoteStorage({
     changeEvents: {
       local: true,
@@ -9,8 +9,6 @@
     }
   });
 
-
-
     // Init remote storage //
     remoteStorage.setApiKeys({
       dropbox: '86gt09zt4ykmr3w'
@@ -19,7 +17,7 @@
 
     // Create & Add connection widget
     const widget = new Widget(remoteStorage);
-    widget.attach('app');
+    widget.attach('settings');
 
     //Create scope for remote storage
     window.rsClient = remoteStorage.scope('/addfocus/');
@@ -29,24 +27,22 @@
       console.log("Data sent to remote storage.")
     }
 
-    window.saveToRemoteData = function (name, content, callback = log) {
-      window.rsClient.storeFile('application/json', name + '.json', content)
-        .then(callback());
+    window.saveRemoteData = function (name, content, callback) {
+      window.rsClient.storeFile(
+        'application/json', 
+        name + '.json', 
+        JSON.stringify(content)
+      ).then(() => {if (typeof callback !== 'undefined'){callback()}});
 
     }
 
-    window.saveToRemoteText = function (name, content, callback = log) {
-      window.rsClient.storeFile('text/plain', name + '.txt', content)
-        .then(callback());
+    window.loadRemoteData = function (name, callback) {
+      window.rsClient.getFile(name + '.json')
+        .then(file => {callback(JSON.parse(file.data))});
     }
 
-    //SAVE DATA DEMO
-
-    // List all items in the "foo/" category/folder
-    //window.rsClient.getListing('')
-    //  .then(listing => console.log(listing));
-
-    // Write some text to "addfocus/bam.json"
-    //const content = '{"name":"somesink","amount": "1 lt"}'
-    //window.rsClient.storeFile('application/json', 'bam.json', content)
-    //  .then(() => console.log("data has been saved"));
+   //window.saveRemoteText = function (name, content, callback) {
+   //  window.rsClient.storeFile('text/plain', name + '.txt', content)
+   //    .then(() => {if (typeof callback !== 'undefined') { callback() } });
+   //}
+  }

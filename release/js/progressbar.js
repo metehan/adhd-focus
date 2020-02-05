@@ -1,13 +1,12 @@
 let startingTime = 0
 let endingTime = 1
-let passedOnPause = 0
-let completeCallback
+let completeCallback = function(){}
 let visualUpdates
 let grower
 let completeTimeout = setTimeout(function () {completeCallback() }, 1000)
 let completionSound = document.getElementById("timer-completion")
 let startSound = document.getElementById("timer-start")
-let masterVolume = 0.2
+let masterVolume = 0.6
 completionSound.volume = masterVolume
 startSound.volume = masterVolume
 
@@ -28,9 +27,8 @@ let updateVisuals = function () {
   }
 }
 
-
 window.timerBar = function (minutes, start, callback) {
-  clearTimeout(completeCallback)
+  clearTimeout(completeTimeout)
   grower = document.getElementsByClassName("growing-bar")
 
   startingTime = Date.now() - start * 60 * 1000
@@ -56,19 +54,13 @@ window.timerBar = function (minutes, start, callback) {
   }, endingTime - Date.now())
 }
 
-window.pauseTimerBar = function () {
+window.stopTimerBar = function () {
   clearTimeout(completeTimeout)
   clearInterval(visualUpdates)
-  passedOnPause = Date.now() - startingTime;
 }
 
-
-window.resumeTimerBar = function () {
-  clearInterval(visualUpdates)
-  passedOnPause = Date.now() - startingTime;
-}
-
-//TEMP
-  window.stopTimerBar = function () {
-    window.pauseTimerBar()
+window.clearTimerBar = function () {
+  for (i = 0; i < grower.length; i++) {
+    grower[i].style.width = "0%"
   }
+}

@@ -34,4 +34,5 @@
 (rf/reg-sub
  :active-task
  (fn [db _]
-   (first (filter #(= (:active-task db) (:id %)) (:tasks db)))))
+   (merge (:active-task db)
+    {:task (first (filter #(= (:id (:active-task db)) (:id %)) (:tasks db)))})))
