@@ -64,8 +64,11 @@
      [x @(rf/subscribe [sub-to])]
       [:<> {:key x}
        [:li
-        {:on-click #(rf/dispatch [:active-task (:id x)])}
-        (:task x)]])]])
+        [:span 
+         {:on-click #(rf/dispatch [:active-task (:id x)])}
+         (:task x)]
+        [:i.fa.fa-edit]
+        [:i.fa.fa-trash-o]]])]])
 
 (defn active-task [active]
   (r/with-let
@@ -120,12 +123,12 @@
        [:span.litext "Feedback"]
        [:i.fa.fa-commenting-o]]
       [:li
-       [:span.litext "People"]
-       [:i.fa.fa-download]]
+       [:span.litext "Help"]
+       [:i.fa.fa-question]]
       [:li
-       [:span.litext "Hello"]
-       [:i.fa.fa-camera]]]
-     [:div#settings
+       [:span.litext "About"]
+       [:i.fa.fa-info]]]
+     [:div#settings.modal
       {:class (if @settings "open" "")}
       [:div.close-button
        {:on-click #(reset! settings false)}

@@ -60,6 +60,9 @@ window.stopTimerBar = function () {
 }
 
 window.clearTimerBar = function () {
+  if (typeof grower == 'undefined') {
+    grower = document.getElementsByClassName("growing-bar")
+  }
   for (i = 0; i < grower.length; i++) {
     grower[i].style.width = "0%"
   }

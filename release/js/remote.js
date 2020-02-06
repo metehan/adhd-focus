@@ -16,7 +16,7 @@ window.connectRemote = function() {
     remoteStorage.access.claim('addfocus', 'rw');
 
     // Create & Add connection widget
-    const widget = new Widget(remoteStorage);
+  const widget = new Widget(remoteStorage, {modalBackdrop: false});
     widget.attach('settings');
 
     //Create scope for remote storage

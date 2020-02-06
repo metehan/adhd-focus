@@ -2862,8 +2862,19 @@ a.text-error:visited {
 .corner li {
   cursor: pointer;
 }
-.corner li:hover {
+.corner li i {
+  opacity: 0;
+}
+.corner li:hover i {
+  opacity: 1;
+}
+.corner li span:hover,
+.corner li i:hover {
   color: #e64d1a;
+}
+.corner li i {
+  display: inline-block;
+  padding: 0 4px;
 }
 .corner:hover {
   box-shadow: rgba(22, 49, 54, 0.5) 1px 1px 6px;
@@ -2913,25 +2924,10 @@ a.text-error:visited {
   float: right;
 }
 
-@media screen and (max-width: 700px) {
-  #app .add-task {
-    left: 10vw;
-    width: 80vw;
-    top: -360px;
-  }
-  #app .add-task:hover {
-    top: 0px;
-  }
-  #app .add-task .task-form {
-    user-select: none;
-    height: 355px;
-    padding: 10px;
-  }
-}
 /* -------------------------------------------------------------------------- */
-/*                                  SETTINGS                                  */
+/*                                    MODAL                                   */
 /* -------------------------------------------------------------------------- */
-#settings {
+.modal {
   background-color: rgba(251, 242, 233, 0.9);
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(102, 102, 102, 0.4);
@@ -2943,10 +2939,10 @@ a.text-error:visited {
   height: 80vh;
   display: none;
 }
-#settings.open {
+.modal.open {
   display: block;
 }
-#settings .close-button {
+.modal .close-button {
   background-color: rgba(251, 242, 233, 0.9);
   border-radius: 10px 10px 0 0;
   width: 30px;
@@ -2959,10 +2955,10 @@ a.text-error:visited {
   border-bottom: none;
   cursor: pointer;
 }
-#settings .close-button:hover {
+.modal .close-button:hover {
   color: #000;
 }
-#settings .header {
+.modal .header {
   padding: 12px;
 }
 
@@ -2972,8 +2968,7 @@ a.text-error:visited {
 .down-buttons {
   position: absolute;
   bottom: 0;
-  left: 40vw;
-  width: 20vw;
+  width: 100vw;
   text-align: center;
   list-style: none;
   color: black;
@@ -3028,6 +3023,119 @@ a.text-error:visited {
 .rs-closed:hover {
   cursor: pointer;
   opacity: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                MEDIA QUERIES                               */
+/* -------------------------------------------------------------------------- */
+@media screen and (max-width: 800px) {
+  #app .add-task {
+    left: 10vw;
+    width: 80vw;
+    top: -360px;
+  }
+  #app .add-task:hover {
+    top: 0px;
+  }
+  #app .add-task .task-form {
+    user-select: none;
+    height: 355px;
+    padding: 10px;
+  }
+  #app .active-task {
+    position: absolute;
+    top: 30%;
+    width: 70%;
+    left: 20%;
+  }
+  #app .task-list li i {
+    opacity: 0.5;
+    margin: 2px;
+  }
+}
+@media screen and (max-width: 650px) {
+  #app .add-task {
+    left: 0vw;
+    width: 100vw;
+    top: -360px;
+  }
+  #app .add-task:hover {
+    top: 0px;
+  }
+  #app .add-task .task-form {
+    user-select: none;
+    height: 355px;
+    padding: 30px 10px 10px 10px;
+  }
+  #app .corner {
+    margin: 0px;
+  }
+  #app .corner.tl {
+    border-radius: 0 0 10px 0;
+  }
+  #app .corner.tr {
+    border-radius: 0 0 0 10px;
+  }
+  #app .corner.bl {
+    border-radius: 0 10px 0 0;
+  }
+  #app .corner.br {
+    border-radius: 10px 0 0 0;
+  }
+  #app .active-task {
+    position: absolute;
+    top: 30%;
+    width: 80%;
+    left: 10%;
+  }
+  #app .task-name {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  #app .start,
+#app .end {
+    font-size: 1rem;
+    position: absolute;
+  }
+
+  .down-buttons li {
+    opacity: 0.5;
+    background-color: #d98026;
+    border-radius: 4px 4px 0 0;
+    margin: 0 2px;
+    cursor: pointer;
+    width: 38px;
+    height: 35px;
+    padding: 6px;
+  }
+
+  .modal {
+    top: 10vh;
+    left: 2vw;
+    width: 96vw;
+    height: 80vh;
+  }
+  .modal #remotestorage-widget {
+    position: absolute !important;
+    left: 0px;
+    top: 0px;
+    user-select: none;
+  }
+  .modal .close-button {
+    width: 40px;
+    height: 34px;
+    position: absolute;
+    right: 10px;
+    top: -34px;
+    padding: 5px 0 0 11px;
+  }
+  .modal .close-button i {
+    font-size: 20px;
+  }
+
+  #settings .header {
+    padding: 80px 10px 10px;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

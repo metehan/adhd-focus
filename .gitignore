@@ -5,8 +5,6 @@
 
 node_modules
 package-lock.json
-pom.xml
-release/js/shadow
 
 pom.xml
 pom.xml.asc
