@@ -7,6 +7,7 @@
  :initialize
  (constantly
   {:tasks []
+   :history []
    :active-task {:id 0
                  :state :ready
                  :start-time (time/now)
@@ -22,22 +23,28 @@
 
 (rf/reg-fx
  :save-to-cloud
- (fn [tasks]
+ (fn [[file tasks]]
    (.saveRemoteData js/window
-                    "tasks" (clj->js tasks))))
+                    file (clj->js tasks))))
 
 (rf/reg-event-fx
  :new-task
  (fn [{:keys [db]} [_ task start-now]]
    (let
     [id (time/now)
-     newdb (-> db
-               (assoc :id_counter id)
-               (assoc :tasks (conj (:tasks db) (assoc task :id  id))))]
+     newdb (assoc db :tasks (conj (:tasks db) (assoc task :id  id)))]
      {:db newdb
-      :save-to-cloud (:tasks newdb)
+      :save-to-cloud ["tasks" (:tasks newdb)]
       :dispatch-later [(if start-now {:ms 10 :dispatch [:active-task id]})
                        (if start-now {:ms 500 :dispatch [:run-active-task]})]})))
+
+(rf/reg-event-fx
+ :delete-task
+ (fn [{:keys [db]} [_ id]]
+   (let
+    [newdb (assoc db :tasks (filter #(not= id (:id %)) (:tasks db)))]
+     {:db newdb
+      :save-to-cloud ["tasks" (:tasks newdb)]})))
 
 (defn get-task [id tasks]
   (first (filter #(= id (:id %)) tasks)))
@@ -78,7 +85,6 @@
                         (:time (get-task (:id (:active-task db))
                                          (:tasks db)))))))))))
 
-
 (rf/reg-event-db
  :pause-active-task
  (fn [db _]
@@ -112,8 +118,27 @@
         (assoc-in  [:active-task :end-time] end-time)
         (update-in [:active-task :paused-times] inc))))))
 
-
-(rf/reg-event-db
+(rf/reg-event-fx
  :timer-completed
- (fn [db _]
-   (assoc-in db [:active-task :state] :completed)))
+ (fn [{:keys [db]} _]
+   (let
+    [history-item {:date (:start-time (:active-task db))
+           :task-id (:id (:active-task db))
+           :duration (:time (get-task (:id (:active-task db)) (:tasks db)))}
+     newdb (-> db 
+               (assoc-in [:active-task :state] :completed)
+               (assoc :history (conj (:history db) history-item)))]
+     {:db newdb
+      :save-to-cloud ["history" (:history newdb)]})))
+
+(rf/reg-event-fx
+ :cancel-session
+ (fn [{:keys [db]} _]
+   (let
+    [newdb (assoc db :history 
+                  (filter 
+                   #(not= (:start-time (:active-task db)) (:date %)) 
+                   (:history db)))]
+     {:db newdb
+      :save-to-cloud ["history" (:history newdb)]
+      :dispatch [:active-task (:id (:active-task db))]})))

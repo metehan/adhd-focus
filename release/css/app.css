@@ -2695,83 +2695,6 @@ a.text-error:visited {
   height: 255px;
   padding: 10px;
 }
-#app .add-task .task-form .form-label,
-#app .add-task .task-form .text-input {
-  float: left;
-  width: 100%;
-}
-#app .add-task .task-form .text-input {
-  padding: 2px 4px;
-  font-size: 1.1rem;
-}
-#app .add-task .task-form .text-input,
-#app .add-task .task-form button {
-  border-radius: 6px;
-  border: none;
-  box-shadow: 1px 1px 3px inset #b3b3b3;
-  margin: 4px;
-}
-#app .add-task .task-form .time-selector {
-  margin-bottom: 20px;
-}
-#app .add-task .task-form .time-selector span {
-  display: inline-block;
-  margin: 3px;
-  background-color: #e6e6e6;
-  cursor: pointer;
-  border-bottom: 2px solid #666666;
-  width: 26px;
-  height: 20px;
-  border-radius: 6px;
-  padding: 0 4px;
-  font-size: 0.7rem;
-  text-align: center;
-}
-#app .add-task .task-form .time-selector span:hover {
-  border-bottom: none;
-  background-color: #c7b600;
-  color: white;
-  font-weight: bolder;
-}
-#app .add-task .task-form .time-selector input {
-  display: none;
-}
-#app .add-task .task-form .time-selector input:checked + span {
-  background-color: #74c700;
-  color: white;
-  font-weight: bolder;
-}
-#app .add-task .task-form button {
-  box-shadow: none;
-  border-bottom: 2px solid #666666;
-  background-color: #e6e6e6;
-  cursor: pointer;
-}
-#app .add-task .task-form button:hover {
-  border-bottom: none;
-  background-color: #74c700;
-  color: white;
-  font-weight: bolder;
-}
-#app .add-task .task-form .switchers {
-  float: left;
-  margin-bottom: 12px;
-}
-#app .add-task .task-form .switch {
-  display: inline-block;
-  margin: 0 4px;
-}
-#app .add-task .task-form .switch span {
-  cursor: pointer;
-  text-decoration: line-through;
-}
-#app .add-task .task-form .check {
-  margin: 0 4px;
-}
-#app .add-task .task-form .check:checked + span {
-  font-weight: 600;
-  text-decoration: unset;
-}
 #app .add-task .task-form .saved {
   margin-left: 10px;
 }
@@ -2795,6 +2718,83 @@ a.text-error:visited {
 }
 #app .add-task:hover .invisible-handle {
   display: block;
+}
+#app .form-label,
+#app .text-input {
+  float: left;
+  width: 100%;
+}
+#app .text-input {
+  padding: 2px 4px;
+  font-size: 1.1rem;
+}
+#app .text-input,
+#app button {
+  border-radius: 6px;
+  border: none;
+  box-shadow: 1px 1px 3px inset #b3b3b3;
+  margin: 4px;
+}
+#app .time-selector {
+  margin-bottom: 20px;
+}
+#app .time-selector span {
+  display: inline-block;
+  margin: 3px;
+  background-color: #e6e6e6;
+  cursor: pointer;
+  border-bottom: 2px solid #666666;
+  width: 26px;
+  height: 20px;
+  border-radius: 6px;
+  padding: 0 4px;
+  font-size: 0.7rem;
+  text-align: center;
+}
+#app .time-selector span:hover {
+  border-bottom: none;
+  background-color: #c7b600;
+  color: white;
+  font-weight: bolder;
+}
+#app .time-selector input {
+  display: none;
+}
+#app .time-selector input:checked + span {
+  background-color: #74c700;
+  color: white;
+  font-weight: bolder;
+}
+#app .switchers {
+  float: left;
+  margin-bottom: 12px;
+}
+#app .switch {
+  display: inline-block;
+  margin: 0 4px;
+}
+#app .switch span {
+  cursor: pointer;
+  text-decoration: line-through;
+}
+#app .check {
+  margin: 0 4px;
+}
+#app .check:checked + span {
+  font-weight: 600;
+  text-decoration: unset;
+}
+#app button {
+  box-shadow: none;
+  border-bottom: 2px solid #666666;
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+#app button:hover {
+  border-bottom: none;
+  background-color: #74c700;
+  color: white;
+  font-weight: bolder;
 }
 #app .active-task {
   position: absolute;
@@ -2830,6 +2830,9 @@ a.text-error:visited {
 }
 #app .buttons .fa:hover {
   color: #74c700;
+}
+#app .buttons .completed {
+  padding-top: 10px;
 }
 
 .corner {

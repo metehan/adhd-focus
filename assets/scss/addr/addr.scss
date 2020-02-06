@@ -108,96 +108,6 @@
       height: 255px;
       padding: 10px;
 
-      .form-label,
-      .text-input {
-        float: left;
-        width: 100%;
-      }
-
-      .text-input {
-        padding: 2px 4px;
-        font-size: 1.1rem;
-      }
-
-      .text-input,
-      button {
-        border-radius: 6px;
-        border: none;
-        box-shadow: 1px 1px 3px inset hsl(30, 0%, 70%);
-        margin: 4px;
-      }
-
-      .time-selector {
-        margin-bottom: 20px;
-        span {
-          display: inline-block;
-          margin: 3px;
-          background-color: hsl(30, 0%, 90%);
-          cursor: pointer;
-          border-bottom: 2px solid hsl(30, 0%, 40%);
-          width: 26px;
-          height: 20px;
-          border-radius: 6px;
-          padding: 0 4px;
-          font-size: 0.7rem;
-          text-align: center;
-
-          &:hover {
-            border-bottom: none;
-            background-color: hsl(55, 100%, 39%);
-            color: white;
-            font-weight: bolder;
-          }
-        }
-
-        input {
-          display: none;
-        }
-
-        input:checked + span {
-          background-color: hsl(85, 100%, 39%);
-          color: white;
-          font-weight: bolder;
-        }
-      }
-
-      button {
-        box-shadow: none;
-        border-bottom: 2px solid hsl(30, 0%, 40%);
-        background-color: hsl(30, 0%, 90%);
-        cursor: pointer;
-
-        &:hover {
-          border-bottom: none;
-          background-color: hsl(85, 100%, 39%);
-          color: white;
-          font-weight: bolder;
-        }
-      }
-
-      .switchers {
-        float: left;
-        margin-bottom: 12px;
-      }
-
-      .switch {
-        display: inline-block;
-        margin: 0 4px;
-        span {
-          cursor: pointer;
-          text-decoration: line-through;
-        }
-      }
-
-      .check {
-        margin: 0 4px;
-      }
-
-      .check:checked + span {
-        font-weight: 600;
-        text-decoration: unset;
-      }
-
       .saved {
         margin-left: 10px;
       }
@@ -226,6 +136,96 @@
       .invisible-handle {
         display: block;
       }
+    }
+  }
+
+  .form-label,
+  .text-input {
+    float: left;
+    width: 100%;
+  }
+
+  .text-input {
+    padding: 2px 4px;
+    font-size: 1.1rem;
+  }
+
+  .text-input,
+  button {
+    border-radius: 6px;
+    border: none;
+    box-shadow: 1px 1px 3px inset hsl(30, 0%, 70%);
+    margin: 4px;
+  }
+
+  .time-selector {
+    margin-bottom: 20px;
+    span {
+      display: inline-block;
+      margin: 3px;
+      background-color: hsl(30, 0%, 90%);
+      cursor: pointer;
+      border-bottom: 2px solid hsl(30, 0%, 40%);
+      width: 26px;
+      height: 20px;
+      border-radius: 6px;
+      padding: 0 4px;
+      font-size: 0.7rem;
+      text-align: center;
+
+      &:hover {
+        border-bottom: none;
+        background-color: hsl(55, 100%, 39%);
+        color: white;
+        font-weight: bolder;
+      }
+    }
+
+    input {
+      display: none;
+    }
+
+    input:checked + span {
+      background-color: hsl(85, 100%, 39%);
+      color: white;
+      font-weight: bolder;
+    }
+  }
+
+  .switchers {
+    float: left;
+    margin-bottom: 12px;
+  }
+
+  .switch {
+    display: inline-block;
+    margin: 0 4px;
+    span {
+      cursor: pointer;
+      text-decoration: line-through;
+    }
+  }
+
+  .check {
+    margin: 0 4px;
+  }
+
+  .check:checked + span {
+    font-weight: 600;
+    text-decoration: unset;
+  }
+
+  button {
+    box-shadow: none;
+    border-bottom: 2px solid hsl(30, 0%, 40%);
+    background-color: hsl(30, 0%, 90%);
+    cursor: pointer;
+
+    &:hover {
+      border-bottom: none;
+      background-color: hsl(85, 100%, 39%);
+      color: white;
+      font-weight: bolder;
     }
   }
 
@@ -263,6 +263,10 @@
       &:hover {
         color: hsl(85, 100%, 39%);
       }
+    }
+
+    .completed {
+      padding-top: 10px;
     }
   }
 }

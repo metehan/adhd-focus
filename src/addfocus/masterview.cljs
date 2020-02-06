@@ -68,7 +68,9 @@
          {:on-click #(rf/dispatch [:active-task (:id x)])}
          (:task x)]
         [:i.fa.fa-edit]
-        [:i.fa.fa-trash-o]]])]])
+        [:i.fa.fa-trash-o
+         {:on-click #(rf/dispatch [:delete-task (:id x)])}]
+        ]])]])
 
 (defn active-task [active]
   (r/with-let
@@ -102,12 +104,10 @@
                   {:on-click #(rf/dispatch [:resume-active-task])}]
                  [:i.fa.fa-times-circle-o
                   {:on-click #(rf/dispatch [:run-active-task])}]]
-        :completed [:div.completed "Completed"])]]))
-
-;start timer - set start and end times / start green bar
-;pause timer - pause green bar / remove end time 
-;end timer - play notification sound / add minutes 
-
+        :completed [:div.completed 
+                    [:h6 "Task completed and saved to history."]
+                    [:button {:on-click #(rf/dispatch [:cancel-session])}
+                     "Cancel Session"]])]]))
 
 (defn index []
   (r/with-let

@@ -41,6 +41,11 @@ window.connectRemote = function() {
         .then(file => {callback(JSON.parse(file.data))});
     }
 
+  // TODO: When connected loadRemoteData 
+  //remoteStorage.on('connected', function () {
+    // Storage account has been connected, let’s roll!
+  //});
+
    //window.saveRemoteText = function (name, content, callback) {
    //  window.rsClient.storeFile('text/plain', name + '.txt', content)
    //    .then(() => {if (typeof callback !== 'undefined') { callback() } });
