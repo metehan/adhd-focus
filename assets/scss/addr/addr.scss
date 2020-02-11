@@ -220,10 +220,11 @@
     border-bottom: 2px solid hsl(30, 0%, 40%);
     background-color: hsl(30, 0%, 90%);
     cursor: pointer;
-
+    
     &:hover {
       border-bottom: none;
       background-color: hsl(85, 100%, 39%);
+      border-bottom: 2px solid hsl(85, 100%, 39%);
       color: white;
       font-weight: bolder;
     }
@@ -254,6 +255,8 @@
   }
 
   .buttons {
+    padding-top: 10px;
+    z-index: 2;
     text-align: center;
     .fa {
       font-size: 3rem;
@@ -267,6 +270,17 @@
 
     .completed {
       padding-top: 10px;
+
+      hr {
+        width: 50%;
+        border-top: 1px dashed hsl(30, 70%, 50%, 50%);
+      }
+
+      .break {
+        width: 1.6rem;
+        height: 1.6rem;
+        border-radius: 50%;
+      }
     }
   }
 }
@@ -397,6 +411,7 @@
   width: 80vw;
   height: 80vh;
   display: none;
+  padding: 12px;
 
   &.open {
     display: block;
@@ -420,7 +435,6 @@
   }
 
   .header {
-    padding: 12px;
   }
 }
 
@@ -516,7 +530,7 @@
 
     .active-task {
       position: absolute;
-      top: 30%;
+      top: 25%;
       width: 70%;
       left: 20%;
     }
@@ -568,7 +582,7 @@
 
     .active-task {
       position: absolute;
-      top: 30%;
+      top: 25%;
       width: 80%;
       left: 10%;
     }

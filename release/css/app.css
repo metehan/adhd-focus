@@ -2652,6 +2652,17 @@ a.text-error:visited {
   height: 2em;
 }
 
+.bar.cyan .side-a,
+.bar.cyan .growing-bar {
+  background-color: rgba(87, 202, 244, 0.6);
+}
+.bar.cyan .side-0 .growing-bar {
+  box-shadow: -0.5em -1.5em 4em #57caf4;
+}
+.bar.cyan .floor .growing-bar {
+  box-shadow: 0em 0em 2em #57caf4;
+}
+
 .bar.lime .side-a,
 .bar.lime .growing-bar {
   background-color: rgba(116, 199, 0, 0.6);
@@ -2665,6 +2676,10 @@ a.text-error:visited {
 
 .chart .bar.lime-face .face {
   background-color: rgba(116, 199, 0, 0.2);
+}
+
+.chart .bar.cyan-face .face {
+  background-color: rgba(87, 202, 244, 0.2);
 }
 
 #app {
@@ -2793,6 +2808,7 @@ a.text-error:visited {
 #app button:hover {
   border-bottom: none;
   background-color: #74c700;
+  border-bottom: 2px solid #74c700;
   color: white;
   font-weight: bolder;
 }
@@ -2820,6 +2836,8 @@ a.text-error:visited {
   margin-top: 7.5rem;
 }
 #app .buttons {
+  padding-top: 10px;
+  z-index: 2;
   text-align: center;
 }
 #app .buttons .fa {
@@ -2833,6 +2851,15 @@ a.text-error:visited {
 }
 #app .buttons .completed {
   padding-top: 10px;
+}
+#app .buttons .completed hr {
+  width: 50%;
+  border-top: 1px dashed rgba(217, 128, 38, 0.5);
+}
+#app .buttons .completed .break {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
 }
 
 .corner {
@@ -2941,6 +2968,7 @@ a.text-error:visited {
   width: 80vw;
   height: 80vh;
   display: none;
+  padding: 12px;
 }
 .modal.open {
   display: block;
@@ -2961,10 +2989,6 @@ a.text-error:visited {
 .modal .close-button:hover {
   color: #000;
 }
-.modal .header {
-  padding: 12px;
-}
-
 /* -------------------------------------------------------------------------- */
 /*                                DOWN BUTTONS                                */
 /* -------------------------------------------------------------------------- */
@@ -3047,7 +3071,7 @@ a.text-error:visited {
   }
   #app .active-task {
     position: absolute;
-    top: 30%;
+    top: 25%;
     width: 70%;
     left: 20%;
   }
@@ -3087,7 +3111,7 @@ a.text-error:visited {
   }
   #app .active-task {
     position: absolute;
-    top: 30%;
+    top: 25%;
     width: 80%;
     left: 10%;
   }

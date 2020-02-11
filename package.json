@@ -6,10 +6,11 @@
     "shadow-cljs": "2.8.51"
   },
   "dependencies": {
+    "apexcharts": "^3.15.5",
+    "create-react-class": "^15.6.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-flip-move": "^3.0.4",
-    "react-highlight.js": "^1.0.7",
-    "create-react-class": "^15.6.3"
+    "react-highlight.js": "^1.0.7"
   }
 }

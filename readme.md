@@ -37,12 +37,14 @@ Using the Eisenhower Decision Principle, tasks are evaluated using the criteria 
 - [x] Basic functionality
 - [x] Saving sessions to history
 - [x] Connect dropbox to save & sync data
-- [ ] Detailed history page
-- [ ] Add XP earning system
-- [ ] Levelling system
-- [ ] Earning random collectibles after tasks
+- [x] Detailed history page
+- [x] Add XP earning system
+- [x] Levelling system
 - [ ] Add your own rewards
 - [ ] Slot machines to earn rewards & collectibles
+
+## Maybe
+- [ ] Earning random collectibles after tasks
 - [ ] Chrome Browser Extention (App)
 - [ ] Mobile App (Currently accesible via mobile browser)
 

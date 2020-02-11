@@ -117,7 +117,7 @@ $growColor: rgba($lime, .6);
 
 //@include drawSkin(rgba($yellow, .8), 'yellow');
 //@include drawSkin(rgba($red, .8), 'red');
-//@include drawSkin($cyan, 'cyan');
+@include drawSkin($cyan, 'cyan');
 //@include drawSkin(rgba($navy, .8), 'navy');
 @include drawSkin($lime, 'lime');
 //@include drawSkin($white, 'white');
@@ -127,7 +127,7 @@ $growColor: rgba($lime, .6);
 @include drawFaces($lime, 'lime-face');
 //@include drawFaces(rgba($red, .6), 'red-face');
 //@include drawFaces(rgba($navy, .6), 'navy-face');
-//@include drawFaces($cyan, 'cyan-face');
+@include drawFaces($cyan, 'cyan-face');
 //@include drawFaces($gray, 'gray-face');
 //@include drawFaces($lightGray, 'lightGray-face');
 
